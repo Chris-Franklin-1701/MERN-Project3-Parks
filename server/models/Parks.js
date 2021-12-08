@@ -60,8 +60,7 @@ const parksSchema = new Schema({
   },
   images: {
     type: [Images]
-  },
-  
+  }
 });
 
 const Park = mongoose.model('State', parksSchema);
