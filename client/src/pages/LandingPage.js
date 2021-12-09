@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import Navbar from './components/Navbar/';
+// import { Link } from 'react-router-dom';
+// import Navbar from './components/Navbar/';
 
 const LandingPage = () => {
 
@@ -12,19 +12,19 @@ const LandingPage = () => {
     </header>
     );
 }
-class Navbar extends React.Component {
-    render() {
-        <div id="navbar" className="Navbar">
-          <nav>
-            <ul>
-              <li>Trip</li>
-              <li>State</li>
-              <li>Navigation</li>
-              <li>Logout</li>
-            </ul>
-          </nav>
-        </div> 
-    }
-  }
+// class Navbar extends React.Component {
+//     render() {
+//         <div id="navbar" className="Navbar">
+//           <nav>
+//             <ul>
+//               <li>Trip</li>
+//               <li>State</li>
+//               <li>Navigation</li>
+//               <li>Logout</li>
+//             </ul>
+//           </nav>
+//         </div> 
+//     }
+//   }
 
 export default LandingPage;

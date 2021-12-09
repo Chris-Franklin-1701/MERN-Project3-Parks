@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
+const { Schema } = require('mongoose');;
 
-const { Schema } = mongoose;
+const entrancePassesSchema = require('./EntrancePasses');
 
 const entranceFeesSchema = new Schema({
     cost: {
@@ -17,7 +17,7 @@ const entranceFeesSchema = new Schema({
         trim: true
     },
     entrancePasses: {
-        type: [EntrancePasses]
+        type: [entrancePassesSchema]
     }
 });
 
