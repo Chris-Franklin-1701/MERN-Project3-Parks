@@ -8,6 +8,5 @@ const visitedParksSchema = new Schema({
     }
 });
 
-const VisitedPark = mongoose.model('Visited Park', visitedParksSchema);
 
-module.exports = VisitedPark;
+module.exports = visitedParksSchema;
