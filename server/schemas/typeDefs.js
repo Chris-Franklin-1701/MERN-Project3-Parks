@@ -6,24 +6,57 @@ const typeDefs = gql`
         userName: String
         email: String
         password: String
-        visitedParks: [VisitedParks]
-        trip: [TripParks]
+        visitedParksCount: Int
+        visitedParks: [VisitedParks!]
+        trip: [TripParks!]
     }
 
-    type Parks {
-        _id: ID
-        url: String
-        fullName: String
-        parkCode: String
+    type Park {
+        _id: ID!
+        url: String!
+        fullName: String!
+        parkCode: String!
         description: String
-        latitude: Number
-        longitude: Number
+        latitude: Number!
+        longitude: Number!
         activities: [Activities]
         topics: [Topics]
         states: [String]
-        phoneNumber: Number
+        phoneNumber: String
         entranceFees: [EntranceFees]
-        postalCode: Number
+        postalCode: Int
+        city: String
+        stateCode: String
+        line1: String
+        line2: String
+        line3: String
+        images: [Image]
+    }
+
+    input VisitedPark {
+        _id: ID!
+        url: String!
+        fullName: String!
+        parkCode: String!
+        description: String
+        latitude: Number!
+        longitude: Number!
+        activities: [Activities]
+        topics: [Topics]
+        states: [String]
+        phoneNumber: String
+        entranceFees: [EntranceFees]
+        postalCode: Int
+        city: String
+        stateCode: String
+        line1: String
+        line2: String
+        line3: String
+        images: [Image]
+    }
+
+    input TripParks {
+
     }
 
     type Activities {
@@ -41,17 +74,17 @@ const typeDefs = gql`
         cost: Number
         description: String
         title: String
-        entrancePasses: [EntrancePasses]
+        entrancePasses: [EntrancePass]
     }
 
-    type EntrancePasses {
+    type EntrancePass {
         _id: ID
         cost: Number
         description: String
         title: String
     }
 
-    type Images {
+    type Image {
         _id: ID
         credit: String
         title: String
@@ -60,24 +93,14 @@ const typeDefs = gql`
         url: String
     }
 
-    type VisitedParks {
-        _id: ID
-        parks: [Parks]
-    }
-
-    type Trip {
-        _id: ID
-        parks: [Parks]
-    }
-
     type Query {
-        parks: [Parks]
+        parks: [Park]
         user: User
     }
 
     type Mutation {
         addUser(userName: String!, email: String!, password: String!): Auth
-        addPark(_id: ID!, fullName: String!): Parks
+        addVisitedPark(input: VisitedPark): User
         login(email: String!, password: String!): Auth
     }
 `;
