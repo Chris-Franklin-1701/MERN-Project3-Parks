@@ -18,4 +18,16 @@ module.exports = () => {
       console.log('Connection Established to parksForRec Database');
     })
     .catch(error => console.log(error.message));
+
+  connection.on('connected', () => {
+    console.log('Mongoose connected to DB Cluster');
+  })
+
+  connection.on('error', (error) => {
+    console.error(error.message);
+  })
+
+  connection.on('disconnected', () => {
+    console.log('Mongoose Disconnected');
+  })
 }
