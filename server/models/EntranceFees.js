@@ -21,6 +21,5 @@ const entranceFeesSchema = new Schema({
     }
 });
 
-const EntranceFees = mongoose.model('Entrance Fees', entranceFeesSchema);
 
-module.exports = EntranceFees;
+module.exports = entranceFeesSchema;

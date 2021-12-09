@@ -8,6 +8,6 @@ const tripSchema = new Schema({
     }
 });
 
-const Trip = mongoose.model('Trip', tripSchema);
 
-module.exports = Trip;
+
+module.exports = tripSchema;
