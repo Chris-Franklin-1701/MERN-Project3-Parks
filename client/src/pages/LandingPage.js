@@ -1,6 +1,8 @@
-import React from 'react';
 import React, { components } from 'react';
 import { Redirect } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+// import Navbar from './components/Navbar/';
+
 
 const LandingPage = () => {
 
