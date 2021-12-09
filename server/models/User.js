@@ -1,14 +1,10 @@
-const mongoose = require('mongoose');
-
-const { Schema } = mongoose;
+const { Schema, model } = require('mongoose');;
 const bcrypt = require('bcrypt');
 
+const parksSchema = require("./Parks");
+
 const userSchema = new Schema({
-    _id: {
-        type: String,
-        required: true
-    },
-    userName: {
+    username: {
         type: String,
         required: true,
         unique: true
@@ -23,12 +19,13 @@ const userSchema = new Schema({
         required: true,
         unique: true
     },
+
     visitedParks: {
-        type: [VisitedParks]
+        type: [parksSchema]
     },
-    trip: {
-        type: [TripParks]
-    }
+    // trip: {
+    //     type: [TripParks]
+    // }
 });
 
 // set up pre-save middleware to create password
@@ -46,4 +43,6 @@ userSchema.methods.isCorrectPassword = async function(password) {
   return await bcrypt.compare(password, this.password);
 };
 
-module.exports = userSchema;
+const User = model('User', userSchema);
+
+module.exports = User;

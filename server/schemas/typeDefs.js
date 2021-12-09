@@ -7,8 +7,8 @@ const typeDefs = gql`
         email: String
         password: String
         visitedParksCount: Int
-        visitedParks: [VisitedParks!]
-        trip: [TripParks!]
+        visitedParks: [Park!]
+        # trip: [TripParks!]
     }
 
     type Park {
@@ -17,8 +17,8 @@ const typeDefs = gql`
         fullName: String!
         parkCode: String!
         description: String
-        latitude: Number!
-        longitude: Number!
+        latitude: Float!
+        longitude: Float!
         activities: [Activities]
         topics: [Topics]
         states: [String]
@@ -33,31 +33,27 @@ const typeDefs = gql`
         images: [Image]
     }
 
-    input VisitedPark {
-        _id: ID!
-        url: String!
-        fullName: String!
-        parkCode: String!
-        description: String
-        latitude: Number!
-        longitude: Number!
-        activities: [Activities]
-        topics: [Topics]
-        states: [String]
-        phoneNumber: String
-        entranceFees: [EntranceFees]
-        postalCode: Int
-        city: String
-        stateCode: String
-        line1: String
-        line2: String
-        line3: String
-        images: [Image]
-    }
-
-    input TripParks {
-
-    }
+    # input VisitedPark {
+    #     _id: ID!
+    #     url: String!
+    #     fullName: String!
+    #     parkCode: String!
+    #     description: String
+    #     latitude: Float!
+    #     longitude: Float!
+    #     activities: [Activities]
+    #     topics: [Topics]
+    #     states: [String]
+    #     phoneNumber: String
+    #     entranceFees: [EntranceFees]
+    #     postalCode: Int
+    #     city: String
+    #     stateCode: String
+    #     line1: String
+    #     line2: String
+    #     line3: String
+    #     images: [Image]
+    # }
 
     type Activities {
         _id: ID
@@ -71,7 +67,7 @@ const typeDefs = gql`
 
     type EntranceFees {
         _id: ID
-        cost: Number
+        cost: Float
         description: String
         title: String
         entrancePasses: [EntrancePass]
@@ -79,7 +75,7 @@ const typeDefs = gql`
 
     type EntrancePass {
         _id: ID
-        cost: Number
+        cost: Float
         description: String
         title: String
     }
@@ -93,14 +89,20 @@ const typeDefs = gql`
         url: String
     }
 
-    type Query {
-        parks: [Park]
+    type Auth {
+        token: ID!
         user: User
     }
 
+    type Query {
+        parks: [Park]
+        user: User
+        me: User
+    }
+
     type Mutation {
-        addUser(userName: String!, email: String!, password: String!): Auth
-        addVisitedPark(input: VisitedPark): User
+        addUser(username: String!, email: String!, password: String!): Auth
+        addVisitedPark(id: ID!): User
         login(email: String!, password: String!): Auth
     }
 `;
