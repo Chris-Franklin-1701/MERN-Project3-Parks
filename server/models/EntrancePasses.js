@@ -18,6 +18,5 @@ const entrancePassesSchema = new Schema({
     }
 });
 
-const EntrancePasses = mongoose.model('Entrance Passes', entrancePassesSchema);
 
-module.exports = EntrancePasses;
+module.exports = entrancePassesSchema;
