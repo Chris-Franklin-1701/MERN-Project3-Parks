@@ -1,4 +1,5 @@
 import React from 'react';
+import React, { components } from 'react';
 import { Redirect } from 'react-router-dom';
 
 const LandingPage = () => {
@@ -12,7 +13,7 @@ const LandingPage = () => {
     );
   }
   
-  class LandingPage extends Component {
+  class LandingPage extends components {
     constructor(props) {
         super(props);
         this.state = {
