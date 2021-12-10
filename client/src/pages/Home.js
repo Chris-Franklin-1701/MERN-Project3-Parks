@@ -15,8 +15,7 @@ const Home = () => {
     }
 
     const mapHandler = (event) => {
-        // window.location.assign('/state')
-        console.log(event.target)
+        window.location.assign(`/state/${event.target.dataset.name}`)
         // alert(event.target.dataset.name);
     };
 
