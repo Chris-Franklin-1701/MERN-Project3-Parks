@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useMutation } from ' @apollo/client';
+import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 
 import Auth from '../utils/auth';
@@ -18,30 +18,29 @@ const Login = (props) => {
             [name]: value,
         });
     };  
-};
-
-const handleFormSubmit = async (event) => {
-    event.preventDefault();
-    console.log(formState);
-    try{
+    
+    const handleFormSubmit = async (event) => {
+      event.preventDefault();
+      console.log(formState);
+      try{
         const { data } = await login({
-            variables: {...formState },
+          variables: {...formState },
         });
-
+        
         Auth.login(data.login.token);
-    } catch (e) {
+      } catch (e) {
         console.error(e);
-    }
-
-    setFormState({
+      }
+      
+      setFormState({
         email: '',
         password: '',
-
-    });
-};
-
-return (
-  <main className="flex-row justify-center mb-4">
+        
+      });
+    };
+    
+    return (
+      <main className="flex-row justify-center mb-4">
       <div className="col-12 col-lg-10">
         <div className="card">
           <h4 className="card-header bg-dark text-light p-2">Login</h4>
@@ -60,7 +59,7 @@ return (
                   type="email"
                   value={formState.email}
                   onChange={handleChange}
-                />
+                  />
                 <input
                   className="form-input"
                   placeholder="******"
@@ -68,12 +67,12 @@ return (
                   type="password"
                   value={formState.password}
                   onChange={handleChange}
-                />
+                  />
                 <button
                   className="btn btn-block btn-info"
                   style={{ cursor: 'pointer' }}
                   type="submit"
-                >
+                  >
                   Submit
                 </button>
               </form>
@@ -89,7 +88,8 @@ return (
       </div>
     </main>
   );
-
-export default Login;
-
+};
+  
+  export default Login;
+  
 

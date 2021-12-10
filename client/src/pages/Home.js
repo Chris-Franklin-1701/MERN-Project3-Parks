@@ -10,6 +10,10 @@ const Home = () => {
         return <Redirect to="/home" />;
     }
 
+    // if (loading) {
+    //     return <div>Loading...</div>;
+    // }
+
     if (!Auth.loggedIn) {
         return (
             <h4>

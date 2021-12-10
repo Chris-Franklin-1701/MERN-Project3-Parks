@@ -1,21 +1,10 @@
-const { connect, connection } = require('mongoose');
-const { config } = require('dotenv');
+const mongoose = require('mongoose');
 
-module.exports = () => {
-  config();
-  const uri = process.env.DB_URI;
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/parksForRec', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: false,
+});
 
-  connect(uri, {
-    dbName: process.env.DB_NAME,
-    user: process.env.DB_USER,
-    pass: process.env.DB_PASS,
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false
-  })
-    .then(() => {
-      console.log('Connection Established to parksForRec Database');
-    })
-    .catch(error => console.log(error.message));
-}
+module.exports = mongoose.connection;
