@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Redirect } from "react-router-dom";
+import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
 import USAMap from "react-usa-map";
 
 import Auth from '../utils/auth'
@@ -15,7 +15,7 @@ const Home = () => {
     }
 
     const mapHandler = (event) => {
-        window.location.assign('/state')
+        window.location.assign(`/state/${event.target.dataset.name}`)
         // alert(event.target.dataset.name);
     };
 

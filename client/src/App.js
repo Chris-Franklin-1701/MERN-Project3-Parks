@@ -15,9 +15,6 @@ import LandingPage from "./pages/LandingPage";
 import State from "./pages/State";
 import PortfolioPage from "./pages/Portfolio";
 
-
-// import Login from "./pages/Login";
-
 const httpLink = createHttpLink({
   uri: "/graphql",
 });
@@ -52,11 +49,9 @@ function App() {
             <Route exact path="/">
               <LandingPage />
             </Route>
-            <Route exact path="/state">
-              <State location={location} zoomLevel={17}/>
+            <Route exact path="/state/:state">
+              <State zoomLevel={6}/>
             </Route>
-            {/* <Route exact path="/signup">
-              </Route> */}
             <Route exact path="/home">
               <Home />
             </Route>
