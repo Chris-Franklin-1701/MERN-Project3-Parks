@@ -12,7 +12,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer"
 import Home from "./pages/Home";
 import LandingPage from "./pages/LandingPage";
-import State from "./pages/State"
+//import State from "./pages/State"
 
 // import Login from "./pages/Login";
 
@@ -45,9 +45,9 @@ function App() {
             <Route exact path="/">
               <LandingPage />
             </Route>
-            <Route exact path="/state">
+            {/* <Route exact path="/state">
               <State />
-            </Route>
+            </Route> */}
             {/* <Route exact path="/signup">
               </Route> */}
             <Route exact path="/home">
