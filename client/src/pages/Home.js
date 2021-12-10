@@ -23,12 +23,10 @@ const Home = () => {
     const statesCustomConfig = () => {
         return {
             "NJ": {
-                fill: "navy",
                 clickHandler: (event) => console.log('Custom handler for NJ', event.target.dataset),
                 
             },
             "NY": {
-                fill: "#CC0000"
             }
         };
     };
