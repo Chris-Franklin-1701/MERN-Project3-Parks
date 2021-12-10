@@ -12,7 +12,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer"
 import Home from "./pages/Home";
 import LandingPage from "./pages/LandingPage";
-import State from "./pages/State"
+//import State from "./pages/State"
 
 
 const httpLink = createHttpLink({
