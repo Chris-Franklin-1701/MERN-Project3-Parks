@@ -15,7 +15,8 @@ const Home = () => {
     }
 
     const mapHandler = (event) => {
-        alert(event.target.dataset.name);
+        window.location.assign('/state')
+        // alert(event.target.dataset.name);
     };
 
     /* optional customization of filling per state and calling custom callbacks per state */
@@ -23,7 +24,8 @@ const Home = () => {
         return {
             "NJ": {
                 fill: "navy",
-                clickHandler: (event) => console.log('Custom handler for NJ', event.target.dataset)
+                clickHandler: (event) => console.log('Custom handler for NJ', event.target.dataset),
+                
             },
             "NY": {
                 fill: "#CC0000"
