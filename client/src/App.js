@@ -14,7 +14,6 @@ import Home from "./pages/Home";
 import LandingPage from "./pages/LandingPage";
 import State from "./pages/State"
 
-// import Login from "./pages/Login";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
