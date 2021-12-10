@@ -12,7 +12,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer"
 import Home from "./pages/Home";
 import LandingPage from "./pages/LandingPage";
-import Login from "./pages/Login";
+// import Login from "./pages/Login";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -42,9 +42,9 @@ function App() {
           <Switch>
             <Route exact path="/">
               <LandingPage />
-            </Route>
+            {/* </Route>
             <Route exact path="/login">
-              <Login />
+              <Login /> */}
             </Route>
             {/* <Route exact path="/signup">
               </Route> */}

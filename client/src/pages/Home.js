@@ -6,15 +6,7 @@ import Auth from '../utils/auth'
 
 const Home = () => {
     // Do we need useParams and check for profile?
-    if (Auth.loggedIn()) {
-        return <Redirect to="/home" />;
-    }
-
-    // if (loading) {
-    //     return <div>Loading...</div>;
-    // }
-
-    if (!Auth.loggedIn) {
+    if (!Auth.loggedIn()) {
         return (
             <h4>
                 You need to be logged in to see this.
