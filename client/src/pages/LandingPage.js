@@ -1,36 +1,26 @@
-import React, { components } from 'react';
-import { Redirect } from 'react-router-dom';
-// import { Link } from 'react-router-dom';
-// import Navbar from './components/Navbar/';
-
+import React, { useState } from "react";
+import { Redirect } from "react-router-dom";
 
 const LandingPage = () => {
+  const [state, setState] = useState({
+    navigate: false,
+    referrer: null,
+  });
 
-    return(
-      <header>
-        <div className='header'>
-            <span className='header-title'>Parks for Rec</span>
-        </div>
+  const handleClick = () => {
+    setState({ referrer: "/" });
+  };
+
+  const { referrer } = state;
+  if (referrer) return <Redirect to={referrer} />;
+
+  return (
+    <header>
+      <div className="header">
+        <span className="header-title">Parks for Rec</span>
+      </div>
     </header>
-    );
-  }
-  
-  class LandingPage extends components {
-    constructor(props) {
-        super(props);
-        this.state = {
-            navigate: false,
-            referrer: null,
-        };
-    }
-
-    handleClick = () => {
-        this.setState({referrer: '/'});
-    }
-    render() {
-        const {referrer} = this.state;
-        if (referrer) return <Redirect to={referrer} />;
-    }
-}
+  );
+};
 
 export default LandingPage;
