@@ -12,7 +12,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer"
 import Home from "./pages/Home";
 import LandingPage from "./pages/LandingPage";
-//import State from "./pages/State"
+import State from "./pages/State"
 
 
 const httpLink = createHttpLink({
@@ -52,8 +52,6 @@ function App() {
             <Route exact path="/state">
               <State location={location} zoomLevel={17}/>
             </Route>
-            {/* <Route exact path="/signup">
-              </Route> */}
             <Route exact path="/home">
               <Home />
             </Route>
