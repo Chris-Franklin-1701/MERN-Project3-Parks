@@ -12,6 +12,8 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer"
 import Home from "./pages/Home";
 import LandingPage from "./pages/LandingPage";
+import State from "./pages/State"
+
 // import Login from "./pages/Login";
 
 const httpLink = createHttpLink({
@@ -42,9 +44,9 @@ function App() {
           <Switch>
             <Route exact path="/">
               <LandingPage />
-            {/* </Route>
-            <Route exact path="/login">
-              <Login /> */}
+            </Route>
+            <Route exact path="/state">
+              <State />
             </Route>
             {/* <Route exact path="/signup">
               </Route> */}
