@@ -12,7 +12,9 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer"
 import Home from "./pages/Home";
 import LandingPage from "./pages/LandingPage";
-//import State from "./pages/State"
+import State from "./pages/State";
+import PortfolioPage from "./pages/Portfolio";
+
 
 // import Login from "./pages/Login";
 
@@ -57,6 +59,9 @@ function App() {
               </Route> */}
             <Route exact path="/home">
               <Home />
+            </Route>
+            <Route exact path="/portfolio">
+              <PortfolioPage />
             </Route>
           </Switch>
           <Footer />
