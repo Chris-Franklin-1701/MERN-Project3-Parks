@@ -35,6 +35,11 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+const location = {
+  lat: 37.42216,
+  lng: -122.08427,
+};
+
 function App() {
   return (
     <ApolloProvider client={client}>
@@ -45,9 +50,9 @@ function App() {
             <Route exact path="/">
               <LandingPage />
             </Route>
-            {/* <Route exact path="/state">
-              <State />
-            </Route> */}
+            <Route exact path="/state">
+              <State location={location} zoomLevel={17}/>
+            </Route>
             {/* <Route exact path="/signup">
               </Route> */}
             <Route exact path="/home">
