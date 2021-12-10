@@ -12,9 +12,8 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer"
 import Home from "./pages/Home";
 import LandingPage from "./pages/LandingPage";
-import State from "./pages/State"
-
-// import Login from "./pages/Login";
+import State from "./pages/State";
+import PortfolioPage from "./pages/Portfolio";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -50,13 +49,14 @@ function App() {
             <Route exact path="/">
               <LandingPage />
             </Route>
-            <Route exact path="/state">
-              <State location={location} zoomLevel={17}/>
+            <Route exact path="/state/:state">
+              <State zoomLevel={6}/>
             </Route>
-            {/* <Route exact path="/signup">
-              </Route> */}
             <Route exact path="/home">
               <Home />
+            </Route>
+            <Route exact path="/portfolio">
+              <PortfolioPage />
             </Route>
           </Switch>
           <Footer />
