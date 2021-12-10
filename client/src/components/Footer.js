@@ -9,7 +9,7 @@ return (
         <p class="m-0 text-center text-white">
         <Link className="btn btn-lg btn-info m-2" to="/portfolio">Portfolios</Link>
         <Link className="btn btn-lg btn-info m-2" to="/contact">Contact</Link>
-        <Link className="btn btn-lg btn-info m-2" to="/github">Github</Link>
+        <a className="btn btn-lg btn-info m-2" href="https://github.com/Chris-Franklin-1701/MERN-Project3-Parks">Github</a>
         </p>
         </div>
     </footer>
