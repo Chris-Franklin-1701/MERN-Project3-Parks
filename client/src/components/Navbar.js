@@ -38,7 +38,9 @@ const AppNavbar = () => {
                                 </>
                             ) : (
                                 <>
-                                    <Nav.Link onClick={() => setShowModal(true)}>Login/Sign Up</Nav.Link>
+                                    <Nav.Link className="btn btn-lg btn-info m=2" onClick={() => setShowModal(true)}>
+                                        Login/Sign Up
+                                    </Nav.Link>
                                 </>
                             )}
                         </Nav>
