@@ -8,12 +8,14 @@ const npsAPIKey = "W0dzOmktZaPugUJXF0onKGeCb2WwALwKOFLwMtgR";
 const State = ({ zoomLevel }) => {
   const renderMarkers = (map, maps) => {
     console.log(maps);
-    let marker = new maps.Marker({
-      position: { lat: 41.8781, lng: -87.6298 },
-      map,
-      title: "Hello World!",
-    });
-    return marker;
+    parksDataArr.map((park) => {
+      let marker = new maps.Marker({
+        position: { lat: Number(park.lat), lng: Number(park.lon) },
+        map,
+        title: park.fullName,
+      });
+      return marker;
+    }) 
   };
 
   const { state } = useParams();
