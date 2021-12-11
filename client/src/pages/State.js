@@ -1,12 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import GoogleMapReact from "google-map-react";
 
-const location = {
-  address: "1600 Amphitheatre Parkway, Mountain View, california.",
-  lat: 37.42216,
-  lng: -122.08427,
-};
+const npsAPIKey = "W0dzOmktZaPugUJXF0onKGeCb2WwALwKOFLwMtgR";
+const googleAPIKey = "AIzaSyBr1ZLjeqx0GNBqMDnxBUA7ZM3xI9dgDrE";
 
 const State = ({ zoomLevel }) => {
   const { state } = useParams();
@@ -64,13 +61,32 @@ const State = ({ zoomLevel }) => {
     LA: [30.39183, -92.329102],
   };
 
+  const getParksData = (stateCode) => {
+    const npsRequestURL = `https://developer.nps.gov/api/v1/parks?stateCode=${stateCode}&api_key=${npsAPIKey}`;
+
+    fetch(npsRequestURL).then((response) => {
+      if (response.ok) {
+        response.json().then((data) => {
+          console.log(data);
+          // console.log(typeof data[0]);
+        });
+      } else {
+        console.error(`Error: ${response.statusText}`);
+      }
+    });
+  };
+
+  useEffect(() => {
+    getParksData(state);
+  }, [state]);
+
   return (
     <div className="map">
-      <h2 className="map-h2">This is a State</h2>
+      {/* <h2 className="map-h2">This is a State</h2> */}
 
       <div className="google-map">
         <GoogleMapReact
-          bootstrapURLKeys={{ key: "AIzaSyBr1ZLjeqx0GNBqMDnxBUA7ZM3xI9dgDrE" }}
+          bootstrapURLKeys={{ key: googleAPIKey }}
           defaultCenter={latAndLong[state]}
           defaultZoom={zoomLevel}
         >
