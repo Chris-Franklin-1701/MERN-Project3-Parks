@@ -1,11 +1,22 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import GoogleMapReact from "google-map-react";
-require('dotenv').config();
+// require('dotenv').config();
 
 const npsAPIKey = "W0dzOmktZaPugUJXF0onKGeCb2WwALwKOFLwMtgR";
 
 const State = ({ zoomLevel }) => {
+
+  const renderMarkers = (map, maps) => {
+    console.log(maps)
+    let marker = new maps.Marker({
+      position: { lat: 41.8781, lng: -87.6298 },
+      map,
+      title: 'Hello World!'
+    });
+    return marker;
+  };
+  
   const { state } = useParams();
 
   const latAndLong = {
@@ -86,12 +97,13 @@ const State = ({ zoomLevel }) => {
 
       <div className="google-map">
         <GoogleMapReact
-          bootstrapURLKeys={{ key: "DB_APIKEY" }}
+          bootstrapURLKeys={{ key: "AIzaSyBr1ZLjeqx0GNBqMDnxBUA7ZM3xI9dgDrE" }}
           defaultCenter={latAndLong[state]}
           defaultZoom={zoomLevel}
+          yesIWantToUseGoogleMapApiInternals
+          onGoogleApiLoaded={({ map, maps }) => renderMarkers(map, maps)}
         >
-          {/* <LocationPin 
-        /> */}
+
         </GoogleMapReact>
       </div>
     </div>
