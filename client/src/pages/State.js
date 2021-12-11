@@ -12,11 +12,6 @@ const State = ({ zoomLevel }) => {
       position: { lat: 41.8781, lng: -87.6298 },
       map,
       title: 'Hello World!'
-    },
-    {
-      position: { lat: 40.6936, lng: -89.5890 },
-      map,
-      title: 'Hello World! 2'
     });
     return marker;
   };
