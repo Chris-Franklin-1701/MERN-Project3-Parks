@@ -81,13 +81,21 @@ const State = ({ zoomLevel }) => {
     fetch(npsRequestURL).then((response) => {
       if (response.ok) {
         response.json().then((results) => {
-          console.log(results);
+          // console.log(results);
           for (let i = 0; i < results.data.length; i++) {
-            // parksLatAndLon.push(`${results.data[i].latitude}, ${results.data[i].longitude}`);
             const parksData = {};
+            parksData.url = results.data[i].url;
+            parksData.fullName = results.data[i].fullName;
+            parksData.description = results.data[i].description;
+            parksData.designation = results.data[i].designation;
             parksData.lat = results.data[i].latitude;
             parksData.lon = results.data[i].longitude;
-            parksData.fullName = results.data[i].fullName;
+            parksData.activities = results.data[i].activities;
+            parksData.phoneNumber = results.data[i].contacts.phoneNumbers[0].phoneNumber;
+            parksData.address = results.data[i].addresses[0];
+            parksData.entranceFees = results.data[i].entranceFees;
+            parksData.entrancePasses = results.data[i].entrancePasses;
+            parksData.images = results.data[i].images
             parksDataArr.push(parksData);
           }
           console.log(parksDataArr);
@@ -103,9 +111,7 @@ const State = ({ zoomLevel }) => {
   }, [state]);
 
   return (
-    <div className="map">
-      {/* <h2 className="map-h2">This is a State</h2> */}
-
+    // <div className="map">
       <div className="google-map">
         <GoogleMapReact
           bootstrapURLKeys={{ key: "AIzaSyBr1ZLjeqx0GNBqMDnxBUA7ZM3xI9dgDrE" }}
@@ -115,7 +121,7 @@ const State = ({ zoomLevel }) => {
           onGoogleApiLoaded={({ map, maps }) => renderMarkers(map, maps)}
         ></GoogleMapReact>
       </div>
-    </div>
+    // </div>
   );
 };
 
