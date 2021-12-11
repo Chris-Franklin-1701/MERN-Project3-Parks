@@ -14,6 +14,8 @@ import Home from "./pages/Home";
 import LandingPage from "./pages/LandingPage";
 import State from "./pages/State";
 import PortfolioPage from "./pages/Portfolio";
+import ContactPage from "./pages/Contact";
+
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -57,6 +59,9 @@ function App() {
             </Route>
             <Route exact path="/portfolio">
               <PortfolioPage />
+            </Route>
+            <Route exact path="/contact">
+              <ContactPage />
             </Route>
           </Switch>
           <Footer />

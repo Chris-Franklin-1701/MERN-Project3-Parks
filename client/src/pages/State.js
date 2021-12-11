@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import GoogleMapReact from "google-map-react";
+require('dotenv').config();
 
 const npsAPIKey = "W0dzOmktZaPugUJXF0onKGeCb2WwALwKOFLwMtgR";
-const googleAPIKey = "AIzaSyBr1ZLjeqx0GNBqMDnxBUA7ZM3xI9dgDrE";
 
 const State = ({ zoomLevel }) => {
   const { state } = useParams();
@@ -86,7 +86,7 @@ const State = ({ zoomLevel }) => {
 
       <div className="google-map">
         <GoogleMapReact
-          bootstrapURLKeys={{ key: googleAPIKey }}
+          bootstrapURLKeys={{ key: "DB_APIKEY" }}
           defaultCenter={latAndLong[state]}
           defaultZoom={zoomLevel}
         >
