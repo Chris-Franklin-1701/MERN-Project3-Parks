@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import GoogleMapReact from "google-map-react";
 // require('dotenv').config();
 
+const npsAPIKey = "W0dzOmktZaPugUJXF0onKGeCb2WwALwKOFLwMtgR";
 
 const State = ({ zoomLevel }) => {
 
@@ -71,9 +72,28 @@ const State = ({ zoomLevel }) => {
     LA: [30.39183, -92.329102],
   };
 
+  const getParksData = (stateCode) => {
+    const npsRequestURL = `https://developer.nps.gov/api/v1/parks?stateCode=${stateCode}&api_key=${npsAPIKey}`;
+
+    fetch(npsRequestURL).then((response) => {
+      if (response.ok) {
+        response.json().then((data) => {
+          console.log(data);
+          // console.log(typeof data[0]);
+        });
+      } else {
+        console.error(`Error: ${response.statusText}`);
+      }
+    });
+  };
+
+  useEffect(() => {
+    getParksData(state);
+  }, [state]);
+
   return (
     <div className="map">
-      <h2 className="map-h2">This is a State</h2>
+      {/* <h2 className="map-h2">This is a State</h2> */}
 
       <div className="google-map">
         <GoogleMapReact
