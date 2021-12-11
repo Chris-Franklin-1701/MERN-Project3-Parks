@@ -15,21 +15,15 @@ const typeDefs = gql`
         _id: ID!
         url: String!
         fullName: String!
-        parkCode: String!
         description: String
+        designation: String
         latitude: Float!
         longitude: Float!
         activities: [Activities]
-        topics: [Topics]
-        states: [String]
         phoneNumber: String
+        address: Address!
         entranceFees: [EntranceFees]
-        postalCode: Int
-        city: String
-        stateCode: String
-        line1: String
-        line2: String
-        line3: String
+        entrancePasses: [EntrancePass]
         images: [Image]
     }
 
@@ -55,6 +49,16 @@ const typeDefs = gql`
     #     images: [Image]
     # }
 
+    type Address {
+        city: String!
+        line1: String!
+        line2: String!
+        line3: String!
+        postalCode: Int!
+        stateCode: String!
+        type: String!
+    }
+
     type Activities {
         _id: ID
         name: String
@@ -70,7 +74,6 @@ const typeDefs = gql`
         cost: Float
         description: String
         title: String
-        entrancePasses: [EntrancePass]
     }
 
     type EntrancePass {
