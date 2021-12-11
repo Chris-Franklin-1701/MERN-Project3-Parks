@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import GoogleMapReact from "google-map-react";
+import StateParksInfo from "../components/StateParkInfo"
 // require('dotenv').config();
 
 const npsAPIKey = "W0dzOmktZaPugUJXF0onKGeCb2WwALwKOFLwMtgR";
@@ -15,7 +16,7 @@ const State = ({ zoomLevel }) => {
         title: park.fullName,
       });
       return marker;
-    }) 
+    });
   };
 
   const { state } = useParams();
@@ -91,11 +92,12 @@ const State = ({ zoomLevel }) => {
             parksData.lat = results.data[i].latitude;
             parksData.lon = results.data[i].longitude;
             parksData.activities = results.data[i].activities;
-            parksData.phoneNumber = results.data[i].contacts.phoneNumbers[0].phoneNumber;
+            parksData.phoneNumber =
+              results.data[i].contacts.phoneNumbers[0].phoneNumber;
             parksData.address = results.data[i].addresses[0];
             parksData.entranceFees = results.data[i].entranceFees;
             parksData.entrancePasses = results.data[i].entrancePasses;
-            parksData.images = results.data[i].images
+            parksData.images = results.data[i].images;
             parksDataArr.push(parksData);
           }
           console.log(parksDataArr);
@@ -111,17 +113,22 @@ const State = ({ zoomLevel }) => {
   }, [state]);
 
   return (
-    // <div className="map">
-      <div className="google-map">
-        <GoogleMapReact
-          bootstrapURLKeys={{ key: "AIzaSyBr1ZLjeqx0GNBqMDnxBUA7ZM3xI9dgDrE" }}
-          defaultCenter={stateLatAndLon[state]}
-          defaultZoom={zoomLevel}
-          yesIWantToUseGoogleMapApiInternals
-          onGoogleApiLoaded={({ map, maps }) => renderMarkers(map, maps)}
-        ></GoogleMapReact>
+    <div className="map-and-info container-fluid">
+      <div className="row">
+        <div className="google-map col-8">
+          <GoogleMapReact
+            bootstrapURLKeys={{
+              key: "AIzaSyBr1ZLjeqx0GNBqMDnxBUA7ZM3xI9dgDrE",
+            }}
+            defaultCenter={stateLatAndLon[state]}
+            defaultZoom={zoomLevel}
+            yesIWantToUseGoogleMapApiInternals
+            onGoogleApiLoaded={({ map, maps }) => renderMarkers(map, maps)}
+          ></GoogleMapReact>
+        </div>
+        <StateParksInfo parksDataArr={parksDataArr} />
       </div>
-    // </div>
+    </div>
   );
 };
 
