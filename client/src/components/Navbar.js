@@ -16,8 +16,8 @@ const AppNavbar = () => {
                     <Navbar.Brand as={Link} to='/'>
                         Parks for Rec
                     </Navbar.Brand>
-                    <Navbar.Toggle aria-controls='navbar' />
-                    <Navbar.Collapse id='navbar'>
+                    <Navbar.Toggle aria-controls='navbar'/>
+                    <Navbar.Collapse id='navbar'style={{justifyContent: "flex-end"}}>
                         <Nav className='ml-auto'>
                             {/* if user is logged in show saved books and logout */}
                             {Auth.loggedIn() ? (
