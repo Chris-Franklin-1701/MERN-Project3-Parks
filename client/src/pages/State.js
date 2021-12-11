@@ -6,20 +6,21 @@ import GoogleMapReact from "google-map-react";
 const npsAPIKey = "W0dzOmktZaPugUJXF0onKGeCb2WwALwKOFLwMtgR";
 
 const State = ({ zoomLevel }) => {
-
   const renderMarkers = (map, maps) => {
-    console.log(maps)
+    console.log(maps);
     let marker = new maps.Marker({
       position: { lat: 41.8781, lng: -87.6298 },
       map,
-      title: 'Hello World!'
+      title: "Hello World!",
     });
     return marker;
   };
-  
+
   const { state } = useParams();
 
-  const latAndLong = {
+  const parksDataArr = [];
+
+  const stateLatAndLon = {
     WI: [44.5, -89.5],
     WV: [39.0, -80.5],
     VT: [44.0, -72.699997],
@@ -77,9 +78,17 @@ const State = ({ zoomLevel }) => {
 
     fetch(npsRequestURL).then((response) => {
       if (response.ok) {
-        response.json().then((data) => {
-          console.log(data);
-          // console.log(typeof data[0]);
+        response.json().then((results) => {
+          console.log(results);
+          for (let i = 0; i < results.data.length; i++) {
+            // parksLatAndLon.push(`${results.data[i].latitude}, ${results.data[i].longitude}`);
+            const parksData = {};
+            parksData.lat = results.data[i].latitude;
+            parksData.lon = results.data[i].longitude;
+            parksData.fullName = results.data[i].fullName;
+            parksDataArr.push(parksData);
+          }
+          console.log(parksDataArr);
         });
       } else {
         console.error(`Error: ${response.statusText}`);
@@ -98,13 +107,11 @@ const State = ({ zoomLevel }) => {
       <div className="google-map">
         <GoogleMapReact
           bootstrapURLKeys={{ key: "AIzaSyBr1ZLjeqx0GNBqMDnxBUA7ZM3xI9dgDrE" }}
-          defaultCenter={latAndLong[state]}
+          defaultCenter={stateLatAndLon[state]}
           defaultZoom={zoomLevel}
           yesIWantToUseGoogleMapApiInternals
           onGoogleApiLoaded={({ map, maps }) => renderMarkers(map, maps)}
-        >
-
-        </GoogleMapReact>
+        ></GoogleMapReact>
       </div>
     </div>
   );
