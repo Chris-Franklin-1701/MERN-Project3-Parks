@@ -16,7 +16,6 @@ import State from "./pages/State";
 import PortfolioPage from "./pages/Portfolio";
 import ContactPage from "./pages/Contact";
 
-
 const httpLink = createHttpLink({
   uri: "/graphql",
 });
@@ -70,5 +69,6 @@ function App() {
     </ApolloProvider>
   );
 }
+
 
 export default App;
