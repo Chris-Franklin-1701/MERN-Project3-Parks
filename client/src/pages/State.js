@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import GoogleMapReact from "google-map-react";
+require('dotenv').config();
 
 const location = {
   address: "1600 Amphitheatre Parkway, Mountain View, california.",
@@ -70,7 +71,7 @@ const State = ({ zoomLevel }) => {
 
       <div className="google-map">
         <GoogleMapReact
-          bootstrapURLKeys={{ key: "AIzaSyBr1ZLjeqx0GNBqMDnxBUA7ZM3xI9dgDrE" }}
+          bootstrapURLKeys={{ key: "DB_APIKEY" }}
           defaultCenter={latAndLong[state]}
           defaultZoom={zoomLevel}
         >
