@@ -15,6 +15,9 @@ const State = ({ zoomLevel }) => {
         map,
         title: park.fullName,
       });
+      marker.addListener('click', function() {
+        
+      }) 
       return marker;
     });
   };
