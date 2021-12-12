@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import GoogleMapReact from "google-map-react";
 import StateParksInfo from "../components/StateParkInfo"
@@ -7,8 +7,10 @@ import StateParksInfo from "../components/StateParkInfo"
 const npsAPIKey = "W0dzOmktZaPugUJXF0onKGeCb2WwALwKOFLwMtgR";
 
 const State = ({ zoomLevel }) => {
+  const [park, setPark] = useState({})
+
   const renderMarkers = (map, maps) => {
-    console.log(maps);
+    // console.log(maps);
     parksDataArr.map((park) => {
       let marker = new maps.Marker({
         position: { lat: Number(park.lat), lng: Number(park.lon) },
@@ -16,7 +18,8 @@ const State = ({ zoomLevel }) => {
         title: park.fullName,
       });
       marker.addListener('click', function() {
-        
+        console.log(park)
+        setPark(park)
       }) 
       return marker;
     });
@@ -97,13 +100,13 @@ const State = ({ zoomLevel }) => {
             parksData.activities = results.data[i].activities;
             parksData.phoneNumber =
               results.data[i].contacts.phoneNumbers[0].phoneNumber;
-            parksData.address = results.data[i].addresses[0];
+            parksData.address = `${results.data[i].addresses[0].line1},  ${results.data[i].addresses[0].city} ${results.data[i].addresses[0].stateCode} ${results.data[i].addresses[0].postalCode}`;
             parksData.entranceFees = results.data[i].entranceFees;
             parksData.entrancePasses = results.data[i].entrancePasses;
             parksData.images = results.data[i].images;
             parksDataArr.push(parksData);
           }
-          console.log(parksDataArr);
+          // console.log(parksDataArr);
         });
       } else {
         console.error(`Error: ${response.statusText}`);
@@ -129,7 +132,7 @@ const State = ({ zoomLevel }) => {
             onGoogleApiLoaded={({ map, maps }) => renderMarkers(map, maps)}
           ></GoogleMapReact>
         </div>
-        <StateParksInfo parkData={parksDataArr} />
+        <StateParksInfo parkData={park} />
       </div>
     </div>
   );
