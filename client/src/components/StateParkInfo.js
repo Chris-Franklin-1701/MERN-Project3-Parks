@@ -1,4 +1,19 @@
+import { useMutation } from '@apollo/react-hooks';
+// import { ADD_VISITED_PARK, TRIP_PARK } from './utils/mutations';
+
 const StateParkInfo = ({ parkData }) => {
+  // const [addVisitedPark, { error }] = useMutation(VISITED_PARK);
+
+  // const [tripPark, { error1 }] = useMutation(TRIP_PARK);
+
+  const handleAddVisitedTrip = async (parkData) => {
+    console.log(parkData)
+  }
+
+  const handleTripPark= async (parkData) => {
+    console.log(parkData)
+  }
+
   return (
     <div className="info col-4">
       {console.log(parkData.fullName !== undefined)}
@@ -33,12 +48,13 @@ const StateParkInfo = ({ parkData }) => {
             })
             }
           </ul>
-          <button onClick={() => console.log("adding trip")} className=""> Add to Trip </button>
-          <button onClick={() => console.log("adding prev visited")} className=""> Add to Previously Visited </button>
+          <button onClick={() => handleTripPark(parkData)} className=""> Add to Trip </button>
+          <button onClick={() => handleAddVisitedTrip(parkData)} className=""> Add to Previously Visited </button>
+          <div style={{height:95}}></div>
         </>
       ) : (
         <>
-          <h2>Click On Marker to see info</h2>
+          <h2>Click on marker to see info</h2>
         </>
       )
       }
