@@ -23,3 +23,23 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const ADD_VISITED_PARK = gql`
+  mutation addVisitedPark(parkId: $parkId) {
+    visitedParks {
+      parkId
+      url
+      fullName
+      description
+      designation
+      latitude
+      longitude
+      activities
+      phoneNumber
+      address
+      entranceFees
+      entrancePasses
+      images
+    }
+  }
+`;
