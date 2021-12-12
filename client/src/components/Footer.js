@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 function Footer() {
 return (
     <div className="footer">
-    <footer className="py-5 bg-dark fixed-bottom">
+    <footer className="bg-dark fixed-bottom">
         <div className="container">
         <p className="m-0 text-center text-white">
         <Link className="btn btn-lg btn-info m-2" to="/portfolio">Portfolios</Link>
