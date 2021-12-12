@@ -1,8 +1,8 @@
-const StateParkInfo = ({parksDataArr}) => {
+const StateParkInfo = ({parkData}) => {
   return (
     <div className="info col-4">
       <ul>
-        {parksDataArr.map((park) => {
+        {parkData.map((park) => {
           <li key={park.fullName}>{park.fullName}</li>;
         })}
       </ul>

@@ -126,7 +126,7 @@ const State = ({ zoomLevel }) => {
             onGoogleApiLoaded={({ map, maps }) => renderMarkers(map, maps)}
           ></GoogleMapReact>
         </div>
-        <StateParksInfo parksDataArr={parksDataArr} />
+        <StateParksInfo parkData={parksDataArr} />
       </div>
     </div>
   );
