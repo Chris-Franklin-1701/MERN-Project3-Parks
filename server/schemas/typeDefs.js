@@ -2,7 +2,7 @@ const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
     type User {
-        _id: ID
+        _id: ID!
         username: String
         email: String
         password: String
@@ -12,7 +12,7 @@ const typeDefs = gql`
     }
 
     type Park {
-        _id: ID!
+        parkId: ID!
         url: String!
         fullName: String!
         description: String
@@ -21,42 +21,26 @@ const typeDefs = gql`
         longitude: Float!
         activities: [Activities]
         phoneNumber: String
-        address: Address!
-        entranceFees: [EntranceFees]
+        address: String!
+        entranceFees: [EntranceFee]
         entrancePasses: [EntrancePass]
         images: [Image]
     }
 
-    # input VisitedPark {
-    #     _id: ID!
-    #     url: String!
-    #     fullName: String!
-    #     parkCode: String!
-    #     description: String
-    #     latitude: Float!
-    #     longitude: Float!
-    #     activities: [Activities]
-    #     topics: [Topics]
-    #     states: [String]
-    #     phoneNumber: String
-    #     entranceFees: [EntranceFees]
-    #     postalCode: Int
-    #     city: String
-    #     stateCode: String
-    #     line1: String
-    #     line2: String
-    #     line3: String
-    #     images: [Image]
-    # }
-
-    type Address {
-        city: String!
-        line1: String!
-        line2: String!
-        line3: String!
-        postalCode: Int!
-        stateCode: String!
-        type: String!
+    type VisitedPark {
+        parkId: String!
+        url: String!
+        fullName: String!
+        description: String
+        designation: String
+        latitude: Float!
+        longitude: Float!
+        activities: [Activities]
+        phoneNumber: String
+        address: String!
+        entranceFees: [EntranceFees]
+        entrancePasses: [EntrancePass]
+        images: [Image]
     }
 
     type Activities {
@@ -69,7 +53,7 @@ const typeDefs = gql`
         name: String
     }
 
-    type EntranceFees {
+    type EntranceFee {
         _id: ID
         cost: Float
         description: String
@@ -105,7 +89,7 @@ const typeDefs = gql`
 
     type Mutation {
         addUser(username: String!, email: String!, password: String!): Auth
-        addVisitedPark(id: ID!): User
+        addVisitedPark(type: VisitedPark!): User
         login(email: String!, password: String!): Auth
     }
 `;
