@@ -9,9 +9,12 @@ import {
 import { setContext } from "@apollo/client/link/context";
 
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer"
 import Home from "./pages/Home";
 import LandingPage from "./pages/LandingPage";
-import Login from "./pages/Login";
+import State from "./pages/State";
+import PortfolioPage from "./pages/Portfolio";
+import ContactPage from "./pages/Contact";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -42,19 +45,25 @@ function App() {
             <Route exact path="/">
               <LandingPage />
             </Route>
-            <Route exact path="/login">
-              <Login />
+            <Route exact path="/state/:state">
+              <State zoomLevel={6}/>
             </Route>
-            {/* <Route exact path="/signup">
-              </Route> */}
             <Route exact path="/home">
               <Home />
             </Route>
+            <Route exact path="/portfolio">
+              <PortfolioPage />
+            </Route>
+            <Route exact path="/contact">
+              <ContactPage />
+            </Route>
           </Switch>
+          <Footer />
         </div>
       </Router>
     </ApolloProvider>
   );
 }
+
 
 export default App;

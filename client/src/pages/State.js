@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import GoogleMapReact from "google-map-react";
 import StateParksInfo from "../components/StateParkInfo"
+
 require('dotenv').config();
 
-const npsAPIKey = "DB_NPSAPIKEY";
+const npsAPIKey = process.env.DB_NPSAPIKEY;
+
 
 const State = ({ zoomLevel }) => {
   const [park, setPark] = useState({})
