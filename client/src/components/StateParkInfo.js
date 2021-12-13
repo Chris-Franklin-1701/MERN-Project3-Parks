@@ -37,48 +37,43 @@ const StateParkInfo = ({ parkData }) => {
 
   return (
     <div className="info col-4" style={{overflow: "scroll", backgroundImage: `url(${background})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center", color: "white"}}>
-      {console.log(parkData.fullName !== undefined)}
-      {parkData.fullName !==undefined ? (
+      {parkData.fullName !== undefined ? (
         <>
           <h2>{parkData.fullName}</h2>
-          <p>{parkData.description}</p>
           <p>{parkData.designation}</p>
+          <p>{parkData.description}</p>
+          <a href={`tel:${parkData.phoneNumber}`}>
+            Phone Number: {parkData.phoneNumber}
+          </a>
+          <p>{parkData.address}</p>
+          <a href={parkData.url}>Click here for more information</a>
+          <h4>Activities</h4>
           <ul>
             {parkData.activities.map((activity) => {
-              return (
-                <li key={activity.id} > {activity.name} </li>
-              )
-            })
-            }
+              return <li key={activity.id}> {activity.name} </li>;
+            })}
           </ul>
-          <p>{parkData.phoneNumber}</p>
-          <p>{parkData.address}</p>
+          <h4>EntranceFees</h4>
           <ul>
             {parkData.entranceFees.map((fee) => {
-              return (
-                <li key={fee.title} > {fee.title} </li>
-              )
-            })
-            }
+              return <li key={fee.description}>${fee.cost} - {fee.description} </li>;
+            })}
           </ul>
-          <ul>
-            {parkData.entrancePasses.map((pass) => {
-              return (
-                <li key={pass.title} > {pass.title} </li>
-              )
-            })
-            }
-          </ul>
-          <button onClick={() => handleTripPark(parkData)} className=""> Add to Trip </button>
-          <button onClick={() => handleAddVisitedTrip(parkData)} className=""> Add to Previously Visited </button>
-          {/* <div style={{height:95}}></div> */}
+          <button onClick={() => handleTripPark(parkData)} className="">
+            {" "}
+            Add to Trip{" "}
+          </button>
+          <button onClick={() => handleAddVisitedTrip(parkData)} className="">
+            {" "}
+            Add to Previously Visited{" "}
+          </button>
+          {/* <div style={{ height: 95 }}></div> */}
         </>
       ) : (
         <>
           <h2>Click on marker to see info</h2>
         </>
-      )
-      }
+      )}
     </div>
   );
 };
