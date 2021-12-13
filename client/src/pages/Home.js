@@ -6,13 +6,13 @@ import Auth from '../utils/auth'
 
 const Home = () => {
     // Do we need useParams and check for profile?
-    if (!Auth.loggedIn()) {
+    /* if (!Auth.loggedIn()) {
         return (
             <h4>
                 You need to be logged in to see this.
             </h4>
         );
-    }
+    } */
 
     const mapHandler = (event) => {
         window.location.assign(`/state/${event.target.dataset.name}`)

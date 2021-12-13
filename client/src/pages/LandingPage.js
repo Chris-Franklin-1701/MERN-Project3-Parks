@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
 const LandingPage = () => {
+  
   return (
     <header>
-      <section className="s5">
         <div className="overlay" />
         <div className="outter-circle" />
         <div className="inner-circle">
@@ -17,12 +18,16 @@ const LandingPage = () => {
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "cover",
               }}
-            ></img>
+            ></img>  
           </Link>
         </div>
-      </section>
-      <body>
-        <h3>welcome</h3>
+      <body>  
+      <div className="intro-logo jumbo-bg">
+          { 
+          <h1 style={{color: 'white', textAlign: "center", alignItems: "center", display: "inline-flex", flexDirection: "column", position: "absolute", fontSize: '4em', fontWeight: "700", fontFamily: "avanta garde", top: "5em", bottom: "0", left: "0", right: "0", filter: 'drop-shadow(3px 2px 2px black', textDecoration: ''}}>
+            Parks for Rec <div></div> 
+            <div></div> </h1> }
+            </div>
       </body>
     </header>
   );
