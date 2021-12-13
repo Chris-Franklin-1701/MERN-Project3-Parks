@@ -1,9 +1,21 @@
+/* import background from '../assets/images/Among-the-Giants.png'; */
 path {
   pointer-events: all;
 }
 path:hover {
   opacity: 0.5;
   cursor: pointer;
+}
+
+.map-and-info {
+  /* background-image: url(/client/src/assets/images/Among-the-Giants.png); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.info {
+  overflow-y: scroll;
 }
 
 .google-map {

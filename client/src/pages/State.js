@@ -5,6 +5,7 @@ import StateParksInfo from "../components/StateParkInfo"
 import { useQuery, useMutation } from '@apollo/client';
 import { GET_ME } from '../utils/queries';
 
+import background from '../assets/images/Among-the-Giants.png';
 require('dotenv').config();
 
 const npsAPIKey = process.env.REACT_APP_NPS_API_KEY;
@@ -13,6 +14,10 @@ const State = ({ zoomLevel }) => {
   const [park, setPark] = useState({})
 
   const { state } = useParams();
+
+  useEffect(() => {
+    getParksData(state);
+  }, [state]);
 
   const parksDataArr = [];
 
@@ -70,7 +75,7 @@ const State = ({ zoomLevel }) => {
   };
 
   const getParksData = (stateCode) => {
-    const npsRequestURL = `https://developer.nps.gov/api/v1/parks?stateCode=${stateCode}&api_key=${npsAPIKey}`;
+    const npsRequestURL = `https://developer.nps.gov/api/v1/parks?stateCode=${stateCode}&api_key=${process.env.REACT_APP_NPS_API_KEY}`;
 
     fetch(npsRequestURL).then((response) => {
       if (response.ok) {
@@ -107,9 +112,9 @@ const State = ({ zoomLevel }) => {
     });
   };
 
-  const { loading, data } = useQuery(GET_ME);
+  // const { loading, data } = useQuery(GET_ME);
 
-  const userData = data?.me || [];
+  // const userData = data?.me || [];
 
   const renderMarkers = (map, maps) => {
     parksDataArr.map((park) => {
@@ -129,12 +134,10 @@ const State = ({ zoomLevel }) => {
     });
   };
 
-  useEffect(() => {
-    getParksData(state);
-  }, [state]);
+
 
   return (
-    <div className="map-and-info container-fluid">
+    <div className="map-and-info container-fluid" style={{backgroundImage: `url(${background})`}}>
       <div className="row">
         <div className="google-map col-8">
           <GoogleMapReact
