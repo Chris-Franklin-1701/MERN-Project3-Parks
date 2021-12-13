@@ -19,7 +19,7 @@ const State = ({ zoomLevel }) => {
     getParksData(state);
   }, [state]);
 
-  const parksDataArr = [];
+  const [parksDataArr, setParksDataArr] = useState([]);
 
   const stateLatAndLon = {
     WI: [44.5, -89.5],
@@ -79,6 +79,7 @@ const State = ({ zoomLevel }) => {
 
     fetch(npsRequestURL).then((response) => {
       if (response.ok) {
+        let tempArr = []
         response.json().then((results) => {
           for (let i = 0; i < results.data.length; i++) {
             const parksData = {};
@@ -102,9 +103,9 @@ const State = ({ zoomLevel }) => {
             parksData.entranceFees = results.data[i].entranceFees;
             parksData.entrancePasses = results.data[i].entrancePasses;
             parksData.images = results.data[i].images;
-            parksDataArr.push(parksData);
+            tempArr.push(parksData);
           }
-          console.log(parksDataArr);
+          setParksDataArr(tempArr)
         })
       } else {
         console.error(`Error: ${response.statusText}`);
@@ -112,11 +113,14 @@ const State = ({ zoomLevel }) => {
     });
   };
 
-  // const { loading, data } = useQuery(GET_ME);
+  const  {loading, data, errors}  = useQuery(GET_ME);
+  // console.log(errors)
 
-  // const userData = data?.me || [];
+  const userData = data?.me || [];
+  console.log(userData)
 
   const renderMarkers = (map, maps) => {
+    console.log(data)
     parksDataArr.map((park) => {
       let marker = new maps.Marker({
         position: { lat: Number(park.latitude), lng: Number(park.longitude) },
