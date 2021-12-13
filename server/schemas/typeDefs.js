@@ -7,18 +7,22 @@ const typeDefs = gql`
         email: String
         password: String
         visitedParksCount: Int
-        visitedParks: [Park!]
+        saveVisited: [Visited]
         # trip: [TripParks!]
     }
 
+    type Visited {
+        parkId: String!
+    }
+
     type Park {
-        parkId: ID!
+        parkId: String!
         url: String!
         fullName: String!
         description: String
         designation: String
-        latitude: Float!
-        longitude: Float!
+        latitude: String!
+        longitude: String!
         activities: [Activities]
         phoneNumber: String
         address: String!
@@ -27,21 +31,11 @@ const typeDefs = gql`
         images: [Image]
     }
 
-    type VisitedPark {
-        parkId: String!
-        url: String!
-        fullName: String!
-        description: String
-        designation: String
-        latitude: Float!
-        longitude: Float!
-        activities: [Activities]
-        phoneNumber: String
-        address: String!
-        entranceFees: [EntranceFees]
-        entrancePasses: [EntrancePass]
-        images: [Image]
+    input ActivityInput {
+        _id: ID
+        name: String
     }
+
 
     type Activities {
         _id: ID
@@ -89,8 +83,8 @@ const typeDefs = gql`
 
     type Mutation {
         addUser(username: String!, email: String!, password: String!): Auth
-        addVisitedPark(type: VisitedPark!): User
         login(email: String!, password: String!): Auth
+        saveVisited(parkId: String!): User
     }
 `;
 

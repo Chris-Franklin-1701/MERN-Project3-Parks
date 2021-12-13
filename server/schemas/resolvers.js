@@ -1,12 +1,12 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { User } = require("../models");
+const { User, Visited } = require("../models");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
     me: async (parent, args, context) => {
       if (context.user) {
-        const userData = await User.findOne({ _id: context.user_id }).select(
+        const userData = await User.findOne({ _id: context.user._id }).populate('saveVisited').select(
           "-__v -password"
         );
         return userData;
@@ -36,19 +36,21 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    addVisitedPark: async (parent, { parkId }, context) => {
+    saveVisited: async (parent, {parkId}, context) => {
       if (context.user) {
-        const updatedUser = await User.findOneAndUpdate(
+        const visited = await Visited.create(
+          { parkId }
+        );
+
+        const user = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $push: { visitedParks: { parkId } } },
+          { $push: { saveVisited:  visited._id } },
           { new: true }
         );
 
-        return updatedUser;
+        return user;
       }
-
-      throw new AuthenticationError("You need to be logged in");
-    },
+    }
   },
 };
 
