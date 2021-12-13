@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose');;
+const { Schema, model, Types } = require('mongoose');;
 const bcrypt = require('bcrypt');
 
 const parksSchema = require("./Parks");
@@ -23,6 +23,13 @@ const userSchema = new Schema({
     visitedParks: {
         type: [parksSchema]
     },
+
+    saveVisited: [
+      {
+        type: Types.ObjectId,
+        ref: 'Visited'
+      }
+    ]
     // trip: {
     //     type: [TripParks]
     // }
