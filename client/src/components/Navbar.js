@@ -11,10 +11,10 @@ const AppNavbar = () => {
 
     return (
         <>
-            <Navbar bg='dark' variant='dark' expand='lg'>
+            <Navbar bg='dark' variant='dark' expand='lg'style={{height:'6em'}}>
                 <Container fluid>
                     <Navbar.Brand as={Link} to='/'>
-                        Parks for Rec
+                    <img src = 'https://i.imgur.com/ScrFDBm.png'style={{marginTop: '20px', height: '5em', width: '20em', marginLeft: '-2.9em'}}></img>
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls='navbar'/>
                     <Navbar.Collapse id='navbar'style={{justifyContent: "flex-end"}}>
