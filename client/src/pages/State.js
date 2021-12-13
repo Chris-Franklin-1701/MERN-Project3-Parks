@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import GoogleMapReact from "google-map-react";
 import StateParksInfo from "../components/StateParkInfo"
-import { useQuery, useMutation } from '@apollo/react-hooks';
+import { useQuery, useMutation } from '@apollo/client';
 import { GET_ME } from '../utils/queries';
 
 require('dotenv').config();
 
-const npsAPIKey = "W0dzOmktZaPugUJXF0onKGeCb2WwALwKOFLwMtgR";
+const npsAPIKey = process.env.REACT_APP_NPS_API_KEY;
 
 const State = ({ zoomLevel }) => {
   const [park, setPark] = useState({})
@@ -75,7 +75,6 @@ const State = ({ zoomLevel }) => {
     fetch(npsRequestURL).then((response) => {
       if (response.ok) {
         response.json().then((results) => {
-          console.log(results);
           for (let i = 0; i < results.data.length; i++) {
             const parksData = {};
             parksData.parkId = results.data[i].id;
@@ -100,17 +99,17 @@ const State = ({ zoomLevel }) => {
             parksData.images = results.data[i].images;
             parksDataArr.push(parksData);
           }
-          // console.log(parksDataArr);
-        });
+          console.log(parksDataArr);
+        })
       } else {
         console.error(`Error: ${response.statusText}`);
       }
     });
   };
 
-  // const { loading, data } = useQuery(GET_ME);
+  const { loading, data } = useQuery(GET_ME);
 
-  // const userData = data?.me || [];
+  const userData = data?.me || [];
 
   const renderMarkers = (map, maps) => {
     parksDataArr.map((park) => {
@@ -123,9 +122,9 @@ const State = ({ zoomLevel }) => {
         },
       });
       marker.addListener('click', function() {
-        console.log(park)
         setPark(park)
       }) 
+      console.log(marker)
       return marker;
     });
   };
@@ -140,7 +139,7 @@ const State = ({ zoomLevel }) => {
         <div className="google-map col-8">
           <GoogleMapReact
             bootstrapURLKeys={{
-              key: "AIzaSyBr1ZLjeqx0GNBqMDnxBUA7ZM3xI9dgDrE",
+              key: process.env.REACT_APP_GOOGLE_API_KEY,
             }}
             defaultCenter={stateLatAndLon[state]}
             defaultZoom={zoomLevel}
