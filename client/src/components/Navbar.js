@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
 import SignUpForm from './SignupForm';
 import LoginForm from './LoginForm';
+import "../index.css";
 
 import Auth from '../utils/auth'
 
@@ -11,10 +12,10 @@ const AppNavbar = () => {
 
     return (
         <>
-            <Navbar bg='dark' variant='dark' expand='lg'style={{height:'6em'}}>
+            <Navbar id='navbar-background' bg='dark' variant='dark' expand='lg'>
                 <Container fluid>
                     <Navbar.Brand as={Link} to='/'>
-                    <img src = 'https://i.imgur.com/ScrFDBm.png'style={{height: '4.6em', width: '20em'}}></img>
+                    <img id='navbar-img' src = 'https://i.imgur.com/ScrFDBm.png'></img>
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls='navbar'/>
                     <Navbar.Collapse id='navbar'style={{justifyContent: "flex-end"}}>
