@@ -25,7 +25,7 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_VISITED_PARK = gql`
-  mutation addVisitedPark(parkId: $parkId) {
+  mutation addVisitedPark($parkId: parkId) {
     visitedParks {
       parkId
       url
