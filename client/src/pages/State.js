@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import GoogleMapReact from "google-map-react";
 import StateParksInfo from "../components/StateParkInfo"
+import background from '../assets/images/Among-the-Giants.png';
 require('dotenv').config();
 
 const npsAPIKey = process.env.REACT_APP_NPS_API_KEY;
@@ -83,7 +84,7 @@ const State = ({ zoomLevel }) => {
   };
 
   const getParksData = (stateCode) => {
-    const npsRequestURL = `https://developer.nps.gov/api/v1/parks?stateCode=${stateCode}&api_key=${npsAPIKey}`;
+    const npsRequestURL = `https://developer.nps.gov/api/v1/parks?stateCode=${stateCode}&api_key=${process.env.REACT_APP_NPS_API_KEY}`;
 
     fetch(npsRequestURL).then((response) => {
       if (response.ok) {
@@ -126,7 +127,7 @@ const State = ({ zoomLevel }) => {
   }, [state]);
 
   return (
-    <div className="map-and-info container-fluid">
+    <div className="map-and-info container-fluid" style={{backgroundImage: `url(${background})`}}>
       <div className="row">
         <div className="google-map col-8">
           <GoogleMapReact

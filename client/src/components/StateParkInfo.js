@@ -36,7 +36,7 @@ const StateParkInfo = ({ parkData }) => {
   }
 
   return (
-    <div className="info col-4" style={{overflow: "scroll", backgroundImage: `url(${background})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center", color: "white"}}>
+    <div className="info col-4" style={{overflow: "scroll", color: "white"}}>
       {parkData.fullName !== undefined ? (
         <>
           <h2>{parkData.fullName}</h2>
@@ -67,7 +67,7 @@ const StateParkInfo = ({ parkData }) => {
             {" "}
             Add to Previously Visited{" "}
           </button>
-          {/* <div style={{ height: 95 }}></div> */}
+          <div style={{ height: 95 }}></div>
         </>
       ) : (
         <>
