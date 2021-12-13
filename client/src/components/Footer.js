@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 function Footer() {
 return (
     <div className="footer">
-    <footer className="bg-dark fixed-bottom">
+    <footer className="bg-dark">
         <div className="container">
         <p className="m-0 text-center text-white">
         <Link className="btn btn-lg btn-link m=2 text-light"to="/portfolio"style ={{fontSize:'1.5em'}}><img src = 'https://i.imgur.com/jBk4CCe.png' style={{width: '7em',height:'6em'}}></img></Link>

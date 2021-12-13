@@ -70,7 +70,7 @@ const StateParkInfo = ({ parkData }) => {
           </ul>
           <button onClick={() => handleTripPark(parkData)} className=""> Add to Trip </button>
           <button onClick={() => handleAddVisitedTrip(parkData)} className=""> Add to Previously Visited </button>
-          <div style={{height:95}}></div>
+          {/* <div style={{height:95}}></div> */}
         </>
       ) : (
         <>

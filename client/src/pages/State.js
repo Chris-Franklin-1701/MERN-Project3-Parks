@@ -2,28 +2,15 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import GoogleMapReact from "google-map-react";
 import StateParksInfo from "../components/StateParkInfo"
+import { useQuery, useMutation } from '@apollo/react-hooks';
+import { GET_ME } from '../utils/queries';
+
 require('dotenv').config();
 
 const npsAPIKey = "W0dzOmktZaPugUJXF0onKGeCb2WwALwKOFLwMtgR";
 
 const State = ({ zoomLevel }) => {
   const [park, setPark] = useState({})
-
-  const renderMarkers = (map, maps) => {
-    // console.log(maps);
-    parksDataArr.map((park) => {
-      let marker = new maps.Marker({
-        position: { lat: Number(park.latitude), lng: Number(park.longitude) },
-        map,
-        title: park.fullName,
-      });
-      marker.addListener('click', function() {
-        console.log(park)
-        setPark(park)
-      }) 
-      return marker;
-    });
-  };
 
   const { state } = useParams();
 
@@ -115,6 +102,30 @@ const State = ({ zoomLevel }) => {
     });
   };
 
+  // const { loading, data } = useQuery(GET_ME);
+
+  // const userData = data?.me || [];
+
+  const renderMarkers = (map, maps) => {
+    // console.log(maps);
+    //this returns an instance of a new array==>it is not the same as a for loop.
+    parksDataArr.map((park) => {
+      let marker = new maps.Marker({
+        position: { lat: Number(park.latitude), lng: Number(park.longitude) },
+        map,
+        title: park.fullName,
+        icon: {
+          url: "http://maps.google.com/mapfiles/kml/pal2/icon12.png"         
+        },
+      });
+      marker.addListener('click', function() {
+        console.log(park)
+        setPark(park)
+      }) 
+      return marker;
+    });
+  };
+
   useEffect(() => {
     getParksData(state);
   }, [state]);
@@ -131,6 +142,7 @@ const State = ({ zoomLevel }) => {
             defaultZoom={zoomLevel}
             yesIWantToUseGoogleMapApiInternals
             onGoogleApiLoaded={({ map, maps }) => renderMarkers(map, maps)}
+          
           ></GoogleMapReact>
         </div>
         <StateParksInfo parkData={park} />
