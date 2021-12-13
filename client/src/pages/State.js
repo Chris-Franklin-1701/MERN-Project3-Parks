@@ -90,9 +90,10 @@ const State = ({ zoomLevel }) => {
     fetch(npsRequestURL).then((response) => {
       if (response.ok) {
         response.json().then((results) => {
-          // console.log(results);
+          console.log(results);
           for (let i = 0; i < results.data.length; i++) {
             const parksData = {};
+            parksData.parkId = results.data[i].id;
             parksData.url = results.data[i].url;
             parksData.fullName = results.data[i].fullName;
             parksData.description = results.data[i].description;
