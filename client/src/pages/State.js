@@ -107,8 +107,6 @@ const State = ({ zoomLevel }) => {
   // const userData = data?.me || [];
 
   const renderMarkers = (map, maps) => {
-    // console.log(maps);
-    //this returns an instance of a new array==>it is not the same as a for loop.
     parksDataArr.map((park) => {
       let marker = new maps.Marker({
         position: { lat: Number(park.latitude), lng: Number(park.longitude) },

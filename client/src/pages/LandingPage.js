@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-const LandingPage = () => (
-  
+const LandingPage = () => ( 
   <header>
   <section className="s5">
     <div className="overlay" />
@@ -16,7 +15,6 @@ const LandingPage = () => (
 <h3>welcome</h3>
   </body>
   </header>
-
 )
 
 export default LandingPage
