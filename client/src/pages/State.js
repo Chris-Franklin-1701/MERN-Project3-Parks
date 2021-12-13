@@ -99,9 +99,15 @@ const State = ({ zoomLevel }) => {
             parksData.latitude = results.data[i].latitude;
             parksData.longitude = results.data[i].longitude;
             parksData.activities = results.data[i].activities;
+            // if (parksData.phoneNumber !== undefined) {
+            //   parksData.phoneNumber =
+            //   results.data[i].contacts.phoneNumbers[0].phoneNumber;
+            // } else {
+            //   parksData.phoneNumber = "No phone number on file";
+            // }
             parksData.phoneNumber =
               results.data[i].contacts.phoneNumbers[0].phoneNumber;
-            parksData.address = `${results.data[i].addresses[0].line1},  ${results.data[i].addresses[0].city} ${results.data[i].addresses[0].stateCode} ${results.data[i].addresses[0].postalCode}`;
+            parksData.address = `${results.data[i].addresses[0].line1}, ${results.data[i].addresses[0].line2}, ${results.data[i].addresses[0].line3} ${results.data[i].addresses[0].city} ${results.data[i].addresses[0].stateCode} ${results.data[i].addresses[0].postalCode}`;
             parksData.entranceFees = results.data[i].entranceFees;
             parksData.entrancePasses = results.data[i].entrancePasses;
             parksData.images = results.data[i].images;
