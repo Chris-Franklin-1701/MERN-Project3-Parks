@@ -7,7 +7,7 @@ import { GET_ME } from '../utils/queries';
 
 require('dotenv').config();
 
-const npsAPIKey = "W0dzOmktZaPugUJXF0onKGeCb2WwALwKOFLwMtgR";
+const npsAPIKey = process.env.REACT_APP_NPS_API_KEY;
 
 const State = ({ zoomLevel }) => {
   const [park, setPark] = useState({})
@@ -136,7 +136,7 @@ const State = ({ zoomLevel }) => {
         <div className="google-map col-8">
           <GoogleMapReact
             bootstrapURLKeys={{
-              key: "AIzaSyBr1ZLjeqx0GNBqMDnxBUA7ZM3xI9dgDrE",
+              key: process.env.REACT_APP_GOOGLE_API_KEY,
             }}
             defaultCenter={stateLatAndLon[state]}
             defaultZoom={zoomLevel}

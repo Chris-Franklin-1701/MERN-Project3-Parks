@@ -1,6 +1,7 @@
 import { useMutation } from '@apollo/client';
 import { ADD_VISITED_PARK, SAVE_VISITED } from '../utils/mutations';
 import Auth from '../utils/auth';
+import background from '../assets/images/Among-the-Giants.png';
 
 const StateParkInfo = ({ parkData }) => {
   // const [addVisitedPark, { error }] = useMutation(ADD_VISITED_PARK);
@@ -35,7 +36,7 @@ const StateParkInfo = ({ parkData }) => {
   }
 
   return (
-    <div className="info col-4">
+    <div className="info col-4" style={{overflow: "scroll", backgroundImage: `url(${background})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center", color: "white"}}>
       {console.log(parkData.fullName !== undefined)}
       {parkData.fullName !==undefined ? (
         <>
