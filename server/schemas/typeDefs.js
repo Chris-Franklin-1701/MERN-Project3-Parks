@@ -7,7 +7,6 @@ const typeDefs = gql`
         email: String
         password: String
         visitedParksCount: Int
-        visitedParks: [Park!]
         saveVisited: [Visited]
         # trip: [TripParks!]
     }
@@ -37,21 +36,6 @@ const typeDefs = gql`
         name: String
     }
 
-    input VisitedPark {
-        parkId: String!
-        url: String!
-        fullName: String!
-        description: String
-        designation: String
-        latitude: String!
-        longitude: String!
-        activities: [ActivityInput]
-        phoneNumber: String
-        address: String!
-        # entranceFees: [EntranceFee]
-        # entrancePasses: [EntrancePass]
-        # images: [Image]
-    }
 
     type Activities {
         _id: ID
@@ -99,7 +83,6 @@ const typeDefs = gql`
 
     type Mutation {
         addUser(username: String!, email: String!, password: String!): Auth
-        addVisitedPark(input: VisitedPark!): User
         login(email: String!, password: String!): Auth
         saveVisited(parkId: String!): User
     }

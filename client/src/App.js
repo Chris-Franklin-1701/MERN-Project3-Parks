@@ -15,6 +15,7 @@ import LandingPage from "./pages/LandingPage";
 import State from "./pages/State";
 import PortfolioPage from "./pages/Portfolio";
 import ContactPage from "./pages/Contact";
+import Visited from "./pages/Visited";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -50,6 +51,9 @@ function App() {
             </Route>
             <Route exact path="/home">
               <Home />
+            </Route>
+            <Route exact path="/visited">
+              <Visited />
             </Route>
             <Route exact path="/portfolio">
               <PortfolioPage />
