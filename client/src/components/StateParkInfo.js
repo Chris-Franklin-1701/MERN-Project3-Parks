@@ -1,13 +1,33 @@
-import { useMutation } from '@apollo/react-hooks';
-// import { ADD_VISITED_PARK, TRIP_PARK } from './utils/mutations';
+import { useMutation } from '@apollo/client';
+import { ADD_VISITED_PARK, SAVE_VISITED } from '../utils/mutations';
+import Auth from '../utils/auth';
 
 const StateParkInfo = ({ parkData }) => {
-  // const [addVisitedPark, { error }] = useMutation(VISITED_PARK);
+  // const [addVisitedPark, { error }] = useMutation(ADD_VISITED_PARK);
+  const [saveVisited, { error }] = useMutation(SAVE_VISITED)
 
   // const [tripPark, { error1 }] = useMutation(TRIP_PARK);
 
   const handleAddVisitedTrip = async (parkData) => {
     console.log(parkData)
+
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
+    if (!token) {
+      return false
+    }
+
+    try {
+      const response = await saveVisited({
+        variables: { parkId: parkData.parkId }
+      })
+      console.log(response)
+
+      if (!response) {
+        throw new Error("Something went wrong")
+      }
+    } catch (err) {
+      console.error(err)
+    }
   }
 
   const handleTripPark= async (parkData) => {
