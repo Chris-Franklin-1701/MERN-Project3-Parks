@@ -15,7 +15,7 @@ const State = ({ zoomLevel }) => {
     // console.log(maps);
     parksDataArr.map((park) => {
       let marker = new maps.Marker({
-        position: { lat: Number(park.lat), lng: Number(park.lon) },
+        position: { lat: Number(park.latitude), lng: Number(park.longitude) },
         map,
         title: park.fullName,
       });
@@ -98,8 +98,8 @@ const State = ({ zoomLevel }) => {
             parksData.fullName = results.data[i].fullName;
             parksData.description = results.data[i].description;
             parksData.designation = results.data[i].designation;
-            parksData.lat = results.data[i].latitude;
-            parksData.lon = results.data[i].longitude;
+            parksData.latitude = results.data[i].latitude;
+            parksData.longitude = results.data[i].longitude;
             parksData.activities = results.data[i].activities;
             parksData.phoneNumber =
               results.data[i].contacts.phoneNumbers[0].phoneNumber;

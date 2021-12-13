@@ -25,21 +25,34 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_VISITED_PARK = gql`
-  mutation addVisitedPark(parkId: $parkId) {
-    visitedParks {
-      parkId
-      url
-      fullName
-      description
-      designation
-      latitude
-      longitude
-      activities
-      phoneNumber
-      address
-      entranceFees
-      entrancePasses
-      images
+  mutation addVisitedPark($input: VisitedPark!) {
+    addVisitedPark(input: $input) {
+      _id
+      username
+      email
+      visitedParks {
+        parkId
+        url
+        fullName
+        description
+        designation
+        latitude
+        longitude
+        activities
+        phoneNumber
+        address
+        # entranceFees
+        # entrancePasses
+        # images
+      }
     }
   }
 `;
+
+export const SAVE_VISITED = gql`
+mutation saveVisited($parkId: String!) {
+    saveVisited(parkId: $parkId) {
+      email
+    }
+  }
+`
