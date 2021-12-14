@@ -2,6 +2,7 @@
   "name": "mern-client",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://floating-harbor-08984.herokuapp.com/",
   "proxy": "http://localhost:3001/",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
