@@ -8,11 +8,11 @@ import { GET_ME } from '../utils/queries';
 import background from '../assets/images/Among-the-Giants.png';
 require('dotenv').config();
 
+
 // const npsAPIKey = process.env.REACT_APP_NPS_API_KEY;
 
 const State = ({ zoomLevel }) => {
   const [park, setPark] = useState({});
-
   const { state } = useParams();
 
   useEffect(() => {
