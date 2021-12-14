@@ -53,6 +53,8 @@ const Visited = () => {
       ) : (
         <>
           {getParksData(userData)}
+          {console.log(`visitedParksData: ${visitedParksData}`)}
+          You have {userData.saveVisited.length} visited parks
           <VisitedParksList userData={visitedParksData} />
         </>
       )}
