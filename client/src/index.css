@@ -1,4 +1,15 @@
 /* import background from '../assets/images/Among-the-Giants.png'; */
+.body{
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+
 path {
   pointer-events: all;
 }
@@ -52,6 +63,7 @@ path:hover {
   }
 }
 
+
 .inner-circle {
   position: relative;
   transition: all .6s;
@@ -101,17 +113,15 @@ path:hover {
   
   }
   
+.logo-animation{
+  animation: spin 100s linear infinite;
+}
 
-
-@keyframes alert {
-  from {
-      transform: scale(1);
-  }
-  to {
-      border: none;
-      transform: scale(1.5);
-  }
-  
+@keyframes spin {
+100%{
+  transform: rotate(360deg);
+}
+ 
 }
 
 .s5 {
@@ -129,6 +139,25 @@ path:hover {
   flex-direction: column;
   position: absolute;
   font-size: 5em;
+}
+
+
+h1 {
+  animation-duration: 1.5s;
+  animation-name: slidein;
+  
+}
+
+@keyframes slidein {
+  from {
+    margin-top: -2200%;
+    width: 300%;
+  }
+  
+  to {
+    margin-bottom: 0%;
+    width: 100%;
+  }
 }
 
 /*styling for footer*/
@@ -179,6 +208,3 @@ path {
 path:hover {
   fill: lightgreen;
 }
-
-
-
