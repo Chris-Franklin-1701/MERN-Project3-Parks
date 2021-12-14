@@ -4,8 +4,7 @@ import GoogleMapReact from "google-map-react";
 import StateParksInfo from "../components/StateParkInfo"
 import { useQuery, useMutation } from '@apollo/client';
 import { GET_ME } from '../utils/queries';
-
-import background from '../assets/images/Among-the-Giants.png';
+import "../index.css";
 require('dotenv').config();
 
 
@@ -166,9 +165,7 @@ const State = ({ zoomLevel }) => {
 
   return (
     <div
-      className="map-and-info container-fluid"
-      style={{ backgroundImage: `url(${background})` }}
-    >
+      className="map-and-info container-fluid">
       <div className="row">
         <div className="google-map col-8">
           <GoogleMapReact

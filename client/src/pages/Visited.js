@@ -3,6 +3,7 @@ import Auth from "../utils/auth";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import { GET_ME } from "../utils/queries";
 import VisitedParksList from "../components/VisitedParksList";
+import "../index.css";
 require("dotenv").config();
 
 const Visited = () => {
