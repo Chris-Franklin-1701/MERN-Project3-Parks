@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.474a8c49.chunk.css",
+    "main.js": "/static/js/main.ee4ee19c.chunk.js",
+    "main.js.map": "/static/js/main.ee4ee19c.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.ea85e383.js",
+    "runtime-main.js.map": "/static/js/runtime-main.ea85e383.js.map",
+    "static/css/2.73a4b9c4.chunk.css": "/static/css/2.73a4b9c4.chunk.css",
+    "static/js/2.466fc055.chunk.js": "/static/js/2.466fc055.chunk.js",
+    "static/js/2.466fc055.chunk.js.map": "/static/js/2.466fc055.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.73a4b9c4.chunk.css.map": "/static/css/2.73a4b9c4.chunk.css.map",
+    "static/css/main.474a8c49.chunk.css.map": "/static/css/main.474a8c49.chunk.css.map",
+    "static/js/2.466fc055.chunk.js.LICENSE.txt": "/static/js/2.466fc055.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/static/media/Among-the-Giants.947ac33a.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ea85e383.js",
+    "static/css/2.73a4b9c4.chunk.css",
+    "static/js/2.466fc055.chunk.js",
+    "static/css/main.474a8c49.chunk.css",
+    "static/js/main.ee4ee19c.chunk.js"
+  ]
+}
