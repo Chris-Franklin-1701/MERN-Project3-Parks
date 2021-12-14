@@ -3,6 +3,7 @@ import { useMutation } from "@apollo/client";
 import { ADD_VISITED_PARK, SAVE_VISITED } from "../utils/mutations";
 import Auth from "../utils/auth";
 import { Button, Modal } from "react-bootstrap";
+import "../index.css";
 
 const StateParkInfo = ({ parkData }) => {
   // const [addVisitedPark, { error }] = useMutation(ADD_VISITED_PARK);
@@ -38,12 +39,9 @@ const StateParkInfo = ({ parkData }) => {
     }
   };
 
-  const handleTripPark = async (parkData) => {
-    console.log(parkData);
-  };
 
   return (
-    <div className="info col-4" style={{ overflow: "scroll", color: "white" }}>
+    <div className="info col-4">
       {parkData.fullName !== undefined ? (
         <>
           <h2>{parkData.fullName}</h2>
@@ -70,10 +68,6 @@ const StateParkInfo = ({ parkData }) => {
               );
             })}
           </ul>
-          <button onClick={() => handleTripPark(parkData)} className="">
-            {" "}
-            Add to Trip{" "}
-          </button>
           <button onClick={() => handleAddVisitedTrip(parkData)} className="">
             {" "}
             Add to Previously Visited{" "}
@@ -101,4 +95,5 @@ const StateParkInfo = ({ parkData }) => {
     </div>
   );
 };
+
 export default StateParkInfo;

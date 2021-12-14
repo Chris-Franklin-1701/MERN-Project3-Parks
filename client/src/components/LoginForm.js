@@ -1,6 +1,7 @@
 // see SignupForm.js for comments
 import React, { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
+import "../index.css";
 
 // import { loginUser } from '../utils/API';
 import Auth from '../utils/auth';
@@ -50,7 +51,7 @@ const LoginForm = () => {
     };
 
     return (
-        <><img src = 'https://i.imgur.com/ScrFDBm.png' style={{marginLeft: '190px', maxWidth: '50%',}}></img>
+        <><img id="login-img" src = 'https://i.imgur.com/ScrFDBm.png'></img>
             <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
                 <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
                     Something went wrong with your login credentials!

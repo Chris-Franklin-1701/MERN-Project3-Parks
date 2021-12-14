@@ -27,6 +27,11 @@ path:hover {
 
 .info {
   overflow-y: scroll;
+  color: white;
+}
+
+.info a {
+  color: darkblue;
 }
 
 .google-map {
@@ -200,10 +205,69 @@ h1 {
   margin: auto;
 }
 
+/*home styling*/
 #home path {
   fill: lightgoldenrodyellow;
 }
 
 #home path:hover {
   fill: lightgreen;
+}
+
+/*login form styling*/
+#login-img {
+  margin-left: 190px;
+  max-width: 50%;
+}
+
+/*state.js styling*/
+.map-and-info {
+  background-image: url("./assets/images/Among-the-Giants.png");
+}
+
+/*portfolio.js styling*/
+#portfolio {
+  text-align: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+#portfolio h1 {
+  text-align: center;
+  align-items: center;
+  padding: 75px 25px 65px 25px;
+}
+
+#portfolio a {
+  padding: 25px;
+  font-size: 3.5rem;
+  color: darkblue;
+}
+
+/*contact.js styling*/
+#contact {
+  text-align: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+#contact h1 {
+  text-align: center;
+  align-items: center;
+  padding: 75px 25px 45px 25px;
+}
+
+.contact-name {
+  padding: 15px;
+}
+
+.contact-name h3 {
+  padding: 15px 15px 0px 15px;
+  margin-bottom: 0px;
+}
+
+.contact-name a {
+  padding: 10px;
 }

@@ -4,17 +4,17 @@ import "../index.css";
 
 const LandingPage = () => {
   return (
-       <>
-       <div className="overlay"></div>
-         <header
-         style={{display: 'flex', 
-         flexDirection: 'column', 
-         justifyContent: 'center',
-         alignItems: 'center',
-         height: '90vh',
-         overflow: 'hidden'
+      <>
+      <div className="overlay"></div>
+        <header
+        style={{display: 'flex', 
+        flexDirection: 'column', 
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '90vh',
+        overflow: 'hidden'
         
-         }}>
+        }}>
           
 
           {/* <img

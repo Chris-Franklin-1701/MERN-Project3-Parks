@@ -1,14 +1,15 @@
 import React from "react";
+import "../index.css";
 
 const PortfolioPage = () => {
     return (
         <div className="overlay">
-            <div className="Portfolio" style={{textAlign: "center", alignItems: "center", display: "flex", flexDirection: "column"}}>
-                <h1 style={{textAlign: "center", alignItems: "center",padding: "75px 25px 65px 25px"}}>Please visit our team's portfolios:</h1>
-                    <a href="https://alexcwik.github.io/my_portfolio/" target="blank" style={{padding: "25px", fontSize: "3.5rem", color: "darkblue"}}>Alex Cwiklinski</a>
-                    <a href="https://christopherfranklin.dev" target="blank" style={{padding: "25px", fontSize: "3.5rem", color: "darkblue"}}>Christopher Franklin</a>
-                    <a href="https://seancraig.me" target="blank" style={{padding: "25px", fontSize: "3.5rem", color: "darkblue"}}>Sean Craig</a>
-                    <a href="https://stewsabatino.github.io//" target="blank" style={{padding: "25px", fontSize: "3.5rem", color: "darkblue"}}>Stew Sabatino</a>
+            <div id="portfolio" className="portfolio">
+                <h1>Please visit our team's portfolios:</h1>
+                    <a href="https://alexcwik.github.io/my_portfolio/" target="blank">Alex Cwiklinski</a>
+                    <a href="https://christopherfranklin.dev" target="blank">Christopher Franklin</a>
+                    <a href="https://seancraig.me" target="blank">Sean Craig</a>
+                    <a href="https://stewsabatino.github.io//">Stew Sabatino</a>
             </div>
         </div>
     )
