@@ -141,6 +141,7 @@ path:hover {
   font-size: 5em;
 }
 
+
 h1 {
   animation-duration: 1.5s;
   animation-name: slidein;
@@ -152,10 +153,58 @@ h1 {
     margin-top: -2200%;
     width: 300%;
   }
-
-
+  
   to {
     margin-bottom: 0%;
     width: 100%;
   }
+}
+
+/*styling for footer*/
+.fixed-bottom {
+  margin: -2.5em;
+}
+
+.btn {
+  font-size: 1.5em;
+}
+
+img {
+  width: 6em;
+  height: 5em;
+}
+
+/*styling for navbar*/
+#navbar-background {
+  height: 6em;
+}
+
+#navbar {
+  justify-content: "flex-end";
+}
+
+#navbar-img {
+  height: 4.6em;
+  width: 20em;
+}
+
+/* app styling*/
+.us-state-map { 
+  display: block;
+  margin: auto;
+  color: aqua;
+}
+
+#home {
+  background-image: url('./assets/images/Crater-Lake.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+path {
+  fill: lightgoldenrodyellow;
+}
+
+path:hover {
+  fill: lightgreen;
 }

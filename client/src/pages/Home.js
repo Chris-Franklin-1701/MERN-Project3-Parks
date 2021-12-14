@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import USAMap from "react-usa-map";
+import '../index.css';
 
 import Auth from '../utils/auth'
 
@@ -31,7 +32,7 @@ const Home = () => {
     };
 
     return (
-        <div className="App">
+        <div id="home" className="App">
             <USAMap customize={statesCustomConfig()} onClick={mapHandler} />
         </div>
     );

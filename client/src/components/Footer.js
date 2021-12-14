@@ -1,15 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom"
+import "../index.css";
 
 function Footer() {
 return (
     <div className="footer">
-    <footer className="bg-dark fixed-bottom" style={{margin: '-2.5em', }}>
+    <footer className="bg-dark fixed-bottom">
         <div className="container">
         <p className="m-0 text-center text-white">
-        <Link className="btn btn-lg btn-link m=2 text-light"to="/portfolio"style ={{fontSize:'1.5em'}}><img src = 'https://i.imgur.com/jBk4CCe.png' style={{width: '6em',height:'5em'}}></img></Link>
-        <Link className="btn btn-lg btn-link m=2 text-light" to="/contact"style ={{fontSize:'1.5em'}}><img src = 'https://i.imgur.com/X5PRHtt.png' style={{width: '6em',height:'5em'}}></img></Link>
-        <a className="btn btn-lg btn-link m=2 text-light" href="https://github.com/Chris-Franklin-1701/MERN-Project3-Parks"style ={{fontSize:'1.5em'}}><img src = 'https://i.imgur.com/Ze9kryd.png' style={{width: '6em',height:'5em'}}></img></a>
+        <Link className="btn btn-lg btn-link m=2 text-light"to="/portfolio"><img src = 'https://i.imgur.com/jBk4CCe.png'></img></Link>
+        <Link className="btn btn-lg btn-link m=2 text-light" to="/contact"><img src = 'https://i.imgur.com/X5PRHtt.png'></img></Link>
+        <a className="btn btn-lg btn-link m=2 text-light" href="https://github.com/Chris-Franklin-1701/MERN-Project3-Parks"><img src = 'https://i.imgur.com/Ze9kryd.png'></img></a>
         </p>
         </div>
         
