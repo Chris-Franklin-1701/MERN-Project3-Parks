@@ -22,9 +22,7 @@ Parks For Rec is an MERN full-stack application that allows the user to view all
   - [Usage](#usage)
   - [Contributing](#contributing)
   - [License](#license)
-  - [Contributing](#contributing)
-  - [Tests](#tests)
-  - [Contact](#questions)
+  - [Contact](#contact)
 
 ## Technologies:
 
