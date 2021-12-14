@@ -28,7 +28,7 @@ const LandingPage = () => {
           /> */}
         
         <div className="parksText">
-          
+
             <img
             src="https://i.imgur.com/ACg9toi.png" className="logo-animation"
             style={{
@@ -42,7 +42,7 @@ const LandingPage = () => {
           />
             <h1
               style={{
-                color: "white",
+                color: '#d6c088',
                 textAlign: "center",
                 alignItems: "center",
                 fontSize: "4em",
@@ -69,3 +69,4 @@ const LandingPage = () => {
 };
 
 export default LandingPage;
+
