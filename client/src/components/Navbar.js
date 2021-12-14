@@ -24,9 +24,8 @@ const AppNavbar = () => {
                             {Auth.loggedIn() ? (
                                 <>
                                     <span>Hey there, {Auth.getProfile().data.username}!</span>
-                             
-                                    <Nav.Link className="btn btn-lg btn-info m-2" as={Link} to="/visited">
-
+                                
+                                    <Nav.Link className="btn btn-lg btn-link m=2 text-light" as={Link} to="/visited">
                                         Prev Visited
                                     </Nav.Link>
                                     <Nav.Link className="btn btn-lg btn-link m=2 text-light" as={Link} to="/home">

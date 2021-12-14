@@ -271,3 +271,34 @@ h1 {
 .contact-name a {
   padding: 10px;
 }
+
+/*landing-page styling*/
+#landing-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  overflow: hidden;
+}
+
+.parksText img {
+  width: 500px;
+  height: auto;
+  position: relative;
+  z-index: 3;
+}
+
+.parksText h1 {
+  color: #d6c088;
+  text-align: center;
+  align-items: center;
+  font-size: 4em;
+  font-weight: 700;
+  margin-top: 1em;
+  margin-bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+  justify-self: center;
+  filter: drop-shadow(3px 2px 2px black);
+}
