@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "../index.css";
 
 const LandingPage = () => {
   return (
-   
        <>
        <div className="overlay"></div>
          <header
@@ -65,9 +65,6 @@ const LandingPage = () => {
           </div>
           </header>
         </>
-     
-
-
   );
 };
 
