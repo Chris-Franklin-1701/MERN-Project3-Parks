@@ -117,26 +117,56 @@ const State = ({ zoomLevel }) => {
   // console.log(errors)
 
   const userData = data?.me || [];
-  console.log(userData)
-
+  // console.log(userData)
+  let i = 0
   const renderMarkers = (map, maps) => {
-    console.log(data)
-    parksDataArr.map((park) => {
-      let marker = new maps.Marker({
-        position: { lat: Number(park.latitude), lng: Number(park.longitude) },
-        map,
-        title: park.fullName,
-        icon: {
-          url: "http://maps.google.com/mapfiles/kml/pal2/icon12.png"         
-        },
+    for (let i = 0; i < userData.saveVisited.length; i++) {
+      let marker;
+      parksDataArr.map((park) => {
+        // console.log("userdata", userData.saveVisited[i].parkId)
+        // console.log("park", park.parkId)
+        // console.log(userData.saveVisited.hasOwnProperty({__typename: 'Visited', parkId: park.parkId}))
+        console.log(marker)
+
+        if (park.parkId === userData.saveVisited[i].parkId) {
+          marker = new maps.Marker({
+            position: { lat: Number(park.latitude), lng: Number(park.longitude) },
+            map,
+            title: park.fullName,
+            icon: {
+              url: "http://maps.google.com/mapfiles/kml/pushpin/red-pushpin.png"       
+            },
+          });
+          marker.addListener('click', function() {
+            setPark(park)
+          })
+
+        } else if ((park.parkId !== userData.saveVisited[i].parkId)){
+          marker = new maps.Marker({
+            position: { lat: Number(park.latitude), lng: Number(park.longitude) },
+            map,
+            title: park.fullName,
+            icon: {
+              url: "http://maps.google.com/mapfiles/kml/pal2/icon12.png"         
+            },
+          });
+          marker.addListener('click', function() {
+            setPark(park)
+          }) 
+          // marker.setMap(null)
+        } 
+        // if(marker !== undefined) {
+        //   marker.setMap(null)
+        // }
+        console.log(marker)
+        return marker;
       });
-      marker.addListener('click', function() {
-        setPark(park)
-      }) 
-      console.log(marker)
-      return marker;
-    });
+      
+    }
+    // console.log(data)
+    
   };
+
 
 
 
