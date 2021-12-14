@@ -132,15 +132,11 @@ path:hover {
 }
 
 /*styling for footer*/
-.fixed-bottom {
-  margin: -2.5em;
-}
-
 .btn {
   font-size: 1.5em;
 }
 
-img {
+.footer-img {
   width: 6em;
   height: 5em;
 }
@@ -164,6 +160,13 @@ img {
   display: block;
   margin: auto;
   color: aqua;
+}
+
+/*landing-page styling*/
+
+.inner-circle {
+  display: block;
+  margin: auto;
 }
 
 #home {
