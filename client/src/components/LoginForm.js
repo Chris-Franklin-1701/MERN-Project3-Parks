@@ -50,7 +50,7 @@ const LoginForm = () => {
     };
 
     return (
-        <>
+        <><img src = 'https://i.imgur.com/ScrFDBm.png' style={{marginLeft: '190px', maxWidth: '50%',}}></img>
             <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
                 <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
                     Something went wrong with your login credentials!
