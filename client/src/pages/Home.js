@@ -32,7 +32,7 @@ const Home = () => {
     };
 
     return (
-        <div id="home" className="App">
+        <div id="home" className="overlay">
             <USAMap customize={statesCustomConfig()} onClick={mapHandler} />
         </div>
     );

@@ -200,16 +200,10 @@ h1 {
   margin: auto;
 }
 
-#home {
-  background-image: url('./assets/images/Crater-Lake.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-path {
+#home path {
   fill: lightgoldenrodyellow;
 }
 
-path:hover {
+#home path:hover {
   fill: lightgreen;
 }
