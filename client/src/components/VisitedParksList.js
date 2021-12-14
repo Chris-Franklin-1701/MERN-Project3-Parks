@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from "react";
-import Auth from "../utils/auth";
-import { useQuery, useMutation } from "@apollo/react-hooks";
-import { GET_ME } from "../utils/queries";
-import VisitedParksList from "../components/VisitedParksList";
 require("dotenv").config();
 
-const Visited = () => {
-  const { loading, data } = useQuery(GET_ME);
-
-  const userData = data?.me || [];
+const VisitedParksList = ({ userData }) => {
+  const [isLoading, setIsLoading] = useState(true);
 
   const visitedParksData = [];
+
+  // useEffect(() => {
+  //   getParksData(userData);
+  // }, [userData]);
 
   const getParksData = (userData) => {
     console.log("calling getParksData");
@@ -42,22 +40,57 @@ const Visited = () => {
         }
       });
     }
+    setIsLoading(false);
   };
 
-
-
   return (
-    <div>
-      {loading ? (
-        <div>Loading...</div>
-      ) : (
-        <>
-          {getParksData(userData)}
-          <VisitedParksList userData={visitedParksData} />
+    <>
+      {console.log(`userData: ${userData}`)}
+      {/* {getParksData(userData)} */}
+      {/* <h2>You have visited {userData.saveVisited.length} parks!</h2> */}
+      {/* <h2>You have visited {visitedParksData.length} parks!</h2> */}
+      {/* {visitedParksData.length > 0 ? (
+        <> */}
+          <div className="visited-parks-list">
+            {userData.map((park) => (
+              <div className="park-preview">
+                <h2>{park.fullName}</h2>
+                <p>{park.designation}</p>
+                <p>{park.description}</p>
+                <a href={`tel:${park.phoneNumber}`}>
+                  Phone Number: {park.phoneNumber}
+                </a>
+                <p>{park.address}</p>
+                <a href={park.url}>
+                  Click here for more information
+                </a>
+                <h4>Activities</h4>
+                <ul>
+                  {park.activities.map((activity) => {
+                    return <li key={activity.id}> {activity.name} </li>;
+                  })}
+                </ul>
+                <h4>EntranceFees</h4>
+                <ul>
+                  {park.entranceFees.map((fee) => {
+                    return (
+                      <li key={fee.description}>
+                        ${fee.cost} - {fee.description}{" "}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            ))}
+          </div>
         </>
-      )}
-    </div>
+      // ) : (
+      //   <>
+      //     <h2>Waiting to fetch data</h2>
+      //   </>
+      // )}
+    // </>
   );
 };
 
-export default Visited;
+export default VisitedParksList;

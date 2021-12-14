@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import GoogleMapReact from "google-map-react";
-import StateParksInfo from "../components/StateParkInfo"
-import background from '../assets/images/Among-the-Giants.png';
-require('dotenv').config();
+import StateParksInfo from "../components/StateParkInfo";
+import background from "../assets/images/Among-the-Giants.png";
+require("dotenv").config();
 
-const npsAPIKey = process.env.REACT_APP_NPS_API_KEY;
+// const npsAPIKey = process.env.REACT_APP_NPS_API_KEY;
 
 const State = ({ zoomLevel }) => {
-  const [park, setPark] = useState({})
+  const [park, setPark] = useState({});
 
   const renderMarkers = (map, maps) => {
     // console.log(maps);
@@ -18,10 +18,10 @@ const State = ({ zoomLevel }) => {
         map,
         title: park.fullName,
       });
-      marker.addListener('click', function() {
-        console.log(park)
-        setPark(park)
-      }) 
+      marker.addListener("click", function () {
+        console.log(park);
+        setPark(park);
+      });
       return marker;
     });
   };
@@ -100,12 +100,6 @@ const State = ({ zoomLevel }) => {
             parksData.latitude = results.data[i].latitude;
             parksData.longitude = results.data[i].longitude;
             parksData.activities = results.data[i].activities;
-            // if (parksData.phoneNumber !== undefined) {
-            //   parksData.phoneNumber =
-            //   results.data[i].contacts.phoneNumbers[0].phoneNumber;
-            // } else {
-            //   parksData.phoneNumber = "No phone number on file";
-            // }
             parksData.phoneNumber =
               results.data[i].contacts.phoneNumbers[0].phoneNumber;
             parksData.address = `${results.data[i].addresses[0].line1}, ${results.data[i].addresses[0].line2}, ${results.data[i].addresses[0].line3} ${results.data[i].addresses[0].city} ${results.data[i].addresses[0].stateCode} ${results.data[i].addresses[0].postalCode}`;
@@ -127,7 +121,10 @@ const State = ({ zoomLevel }) => {
   }, [state]);
 
   return (
-    <div className="map-and-info container-fluid" style={{backgroundImage: `url(${background})`}}>
+    <div
+      className="map-and-info container-fluid"
+      style={{ backgroundImage: `url(${background})` }}
+    >
       <div className="row">
         <div className="google-map col-8">
           <GoogleMapReact

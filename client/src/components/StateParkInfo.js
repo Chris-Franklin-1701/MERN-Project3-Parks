@@ -1,7 +1,6 @@
 import { useMutation } from '@apollo/client';
 import { ADD_VISITED_PARK, SAVE_VISITED } from '../utils/mutations';
 import Auth from '../utils/auth';
-import background from '../assets/images/Among-the-Giants.png';
 
 const StateParkInfo = ({ parkData }) => {
   // const [addVisitedPark, { error }] = useMutation(ADD_VISITED_PARK);
