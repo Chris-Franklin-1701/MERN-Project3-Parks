@@ -7,7 +7,7 @@ import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 const ContactPage = () => {
     return (
     <div className="overlay">
-        <div className="Contact" style={{textAlign: "center", alignItems: "center", display: "flex", flexDirection: "column",backgroundImage: `url("https://www.stefanbaumann.com/wp-content/uploads/2014/07/Crater-Lake.jpg")`, backgroundRepeat: "no-repeat", backgroundSize: "cover",}}>
+        <div className="Contact" style={{textAlign: "center", alignItems: "center", display: "flex", flexDirection: "column"}}>
             <h1 style={{textAlign: "center", alignItems: "center",padding: "75px 25px 45px 25px"}}>Contact Information:</h1>
                 <div className="Alex" style={{padding: " 0px 15px 15px 15px"}}>
                     <h3 style={{padding: "15px 15px 0px 15px", marginBottom: "0px"}}>Alex Cwiklinski</h3>
