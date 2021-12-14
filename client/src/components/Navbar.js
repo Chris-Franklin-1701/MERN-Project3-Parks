@@ -14,7 +14,7 @@ const AppNavbar = () => {
             <Navbar bg='dark' variant='dark' expand='lg'style={{height:'6em'}}>
                 <Container fluid>
                     <Navbar.Brand as={Link} to='/'>
-                    <img src = 'https://i.imgur.com/ScrFDBm.png'style={{height: '4.6em', width: '20em'}}></img>
+                    <img src = 'https://i.imgur.com/ScrFDBm.png'style={{ height: '4.6em', width: '20em'}}></img>
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls='navbar'/>
                     <Navbar.Collapse id='navbar'style={{justifyContent: "flex-end"}}>
