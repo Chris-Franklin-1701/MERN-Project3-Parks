@@ -14,9 +14,9 @@ const State = ({ zoomLevel }) => {
   const [park, setPark] = useState({});
   const { state } = useParams();
 
-  useEffect(() => {
-    getParksData(state);
-  }, [state]);
+  // useEffect(() => {
+  //   getParksData(state);
+  // }, [state]);
 
   const [parksDataArr, setParksDataArr] = useState([]);
 
@@ -73,7 +73,7 @@ const State = ({ zoomLevel }) => {
     LA: [30.39183, -92.329102],
   };
 
-  const getParksData = (stateCode) => {
+  const getParksData = (stateCode, map, maps) => {
     const npsRequestURL = `https://developer.nps.gov/api/v1/parks?stateCode=${stateCode}&api_key=${process.env.REACT_APP_NPS_API_KEY}`;
 
     fetch(npsRequestURL).then((response) => {
@@ -99,6 +99,7 @@ const State = ({ zoomLevel }) => {
             tempArr.push(parksData);
           }
           setParksDataArr(tempArr)
+          renderMarkers(map, maps, tempArr)
         })
       } else {
         console.error(`Error: ${response.statusText}`);
@@ -112,7 +113,8 @@ const State = ({ zoomLevel }) => {
   const userData = data?.me || [];
   // console.log(userData)
   let i = 0
-  const renderMarkers = (map, maps) => { console.log(userData);
+  const renderMarkers = (map, maps,parksDataArr) => {
+    console.log(userData);
     if( userData.saveVisited.length && userData.saveVisited.length > 0) {
       for (let i = 0; i < userData.saveVisited.length; i++) {
         let marker;
@@ -176,7 +178,7 @@ const State = ({ zoomLevel }) => {
             defaultCenter={stateLatAndLon[state]}
             defaultZoom={zoomLevel}
             yesIWantToUseGoogleMapApiInternals
-            onGoogleApiLoaded={({ map, maps }) => renderMarkers(map, maps)}
+            onGoogleApiLoaded={({ map, maps }) => getParksData(state, map, maps)}
           
           ></GoogleMapReact>
         </div>
