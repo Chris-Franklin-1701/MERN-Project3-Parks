@@ -1,33 +1,42 @@
-# MERN-Project3-Parks
-This is a MERN Full-stack application
+# Parks for Rec
+
+## Description
+Parks For Rec is an MERN full-stack application that allows the user to view all of the national parks in the US. The user can select a state, view all of national parks in that state, and see all of the activities that are available at that park. The user can also save the national parks that they have visited to keep track of how many they have been to.
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
+![Parks For Rec Logo, a compass button, and the login/signup button](./demo/Landing-Page-Screen-Shot.png)
 
-![Preview of the project]()
+![An interactive map of the USA](./demo/US-Map-Screen-Shot.png)
 
-![Preview of the project]()
+![On the left side of the page is a map of an individual state, tree icons to show where the parks are located, and pins to show which parks you have visited. On the right side of the page is information about the currently selected park.](./demo/State-Page-Screen-Shot.png)
 
-![Preview of the project]()
-
-![Preview of the project]()
-
+![A list of the visited parks along with information about those parks.](./demo/Visited-Parks-Screen-Shot.png)
 
 ## Live Deployment
 
+[Here is a link to the live deployment of the application](https://floating-harbor-08984.herokuapp.com/)
 
+## Table of Contents
+  - [Technologies](#technologies)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Contributing](#contributing)
+  - [License](#license)
+  - [Contact](#contact)
 
-## List of Technologies Used:
-MUI React Component Library
-Google Maps Library
-NPS.org API
-React-USA-Map NPM pkg
-GraphQL
-MongoDB
-Mongoose
-AtlasDB
-Express.js
-React.js
-Node.js
+## Technologies:
+
+- Bootstrap React Component Library
+- Google Maps Library
+- NPS.org API
+- React-USA-Map NPM pkg
+- GraphQL
+- MongoDB
+- Mongoose
+- AtlasDB
+- Express.js
+- React.js
+- Node.js
 
 ## Installation
 
@@ -37,22 +46,33 @@ Use git clone to clone this repository to your local drive
 git clone "insert repo"
 '''
 
-## References
-
+## Usage
+  run npm start
 
 ## Contributing
+
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
 
 ## License
+
 [MIT](https://choosealicense.com/licenses/mit/)
 
 ## Contact
-Alex Cwiklinski - https://github.com/alexcwik
 
-Chris Franklin - Chris.Franklin1701@gmail.com - https://github.com/Chris-Franklin-1701
+### Alex Cwiklinski
+Email: alexcwik1490@gmail.com
+Github: https://github.com/alexcwik
 
-Sean Craig - https://github.com/seanscraig
+### Chris Franklin
+Email: Chris.Franklin1701@gmail.com 
+Github: https://github.com/Chris-Franklin-1701
 
-Stew Sabation - https://github.com/stewsabatino
+### Sean Craig
+Email: seancraig21@gmail.com 
+Github: https://github.com/seanscraig
+
+### Stew Sabation
+Email: stewsabatino@gmail.com
+Github: https://github.com/stewsabatino
