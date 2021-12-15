@@ -112,8 +112,8 @@ const State = ({ zoomLevel }) => {
   const userData = data?.me || [];
   // console.log(userData)
   let i = 0
-  const renderMarkers = (map, maps) => {
-    if( userData.saveVisited.length == 0 && userData.saveVisited.length > 0) {
+  const renderMarkers = (map, maps) => { console.log(userData);
+    if( userData.saveVisited.length && userData.saveVisited.length > 0) {
       for (let i = 0; i < userData.saveVisited.length; i++) {
         let marker;
         parksDataArr.map((park) => {
